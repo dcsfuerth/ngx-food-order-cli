@@ -1,0 +1,110 @@
+// common/base.scss
+
+* {
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  &,
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button,
+input[type='submit'],
+.btn {
+  @include btn;
+  &.btn-white {
+    @include box-shadow;
+    background-color: white;
+    color: $blue;
+    border: 1px solid $border-color;
+    &:hover {
+      background-color: $blue;
+      border-color: $blue;
+      color: white;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+  thead {
+    th {
+      border-bottom: 2px solid $border-color;
+    }
+  }
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: left;
+  }
+  tbody {
+    td {
+      border-bottom: 1px solid $border-color;
+    }
+    tr:first-child {
+      td {
+        padding-top: 1rem;
+      }
+    }
+    tr:last-child td {
+      border-bottom: 0;
+    }
+  }
+  .actions {
+    text-align: right;
+    a {
+      display: inline-block;
+      margin-right: 0.5rem;
+      &,
+      &:visited {
+        color: $blue;
+      }
+      &:hover {
+        color: $blue-light;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.button-container {
+  margin: $default-margin 0;
+  &:last-child,
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.box {
+  @include box;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}

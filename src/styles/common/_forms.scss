@@ -1,0 +1,48 @@
+// common/forms.scss
+
+.form {
+  label {
+    font-size: $font-size-smaller;
+    color: $font-color-lighter;
+    margin-bottom: 1rem;
+    font-style: italic;
+    display: inline-block;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+}
+
+input,
+textarea,
+select {
+  @include default-transition;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  border-bottom-color: $border-color;
+  background-color: $gray-lightest;
+  font-family: $default-font;
+  font-size: $font-size;
+  color: $font-color;
+  padding: 0.5rem;
+  &:hover {
+    border-color: $border-color;
+  }
+  &:active,
+  &:focus {
+    border-color: $blue;
+  }
+}

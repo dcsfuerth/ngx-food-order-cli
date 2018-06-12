@@ -1,0 +1,27 @@
+// common/general.scss
+
+html,
+body {
+  font-family: $default-font;
+  font-size: $font-size;
+  color: $font-color;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: $gray-lightest;
+}
+
+#main {
+  min-height: calc(100vh - #{$footer-height});
+  padding-top: calc(#{$header-height} + #{$default-margin});
+  padding-bottom: $default-margin;
+  position: relative;
+}
+
+footer {
+  background-color: white;
+  border-top: 1px solid $border-color;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
