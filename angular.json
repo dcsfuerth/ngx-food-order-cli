@@ -115,6 +115,44 @@
           }
         }
       }
+    },
+    "@dcs/ngx-tools": {
+      "root": "projects/dcs/ngx-tools",
+      "sourceRoot": "projects/dcs/ngx-tools/src",
+      "projectType": "library",
+      "prefix": "dcs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dcs/ngx-tools/tsconfig.lib.json",
+            "project": "projects/dcs/ngx-tools/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/dcs/ngx-tools/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dcs/ngx-tools/src/test.ts",
+            "tsConfig": "projects/dcs/ngx-tools/tsconfig.spec.json",
+            "karmaConfig": "projects/dcs/ngx-tools/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dcs/ngx-tools/tsconfig.lib.json",
+              "projects/dcs/ngx-tools/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-food-order-cli"

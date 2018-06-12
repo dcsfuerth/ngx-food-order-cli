@@ -1,5 +1,7 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
 import { HomePageComponent } from './home-page.component';
 
 describe('HomePageComponent', () => {
@@ -8,7 +10,9 @@ describe('HomePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [StoreModule.forRoot({}), NoopAnimationsModule],
       declarations: [HomePageComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 
