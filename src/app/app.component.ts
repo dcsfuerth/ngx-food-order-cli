@@ -9,6 +9,6 @@ export class AppComponent implements OnInit {
   title = 'dcs';
 
   public ngOnInit() {
-    console.log('Site load:', performance.now().toFixed(2), 'ms!');
+    console.log('Site load:', performance.now().toFixed(2), 'ms!!');
   }
 }

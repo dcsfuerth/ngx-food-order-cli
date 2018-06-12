@@ -40,21 +40,23 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "serviceWorker": true
+              "serviceWorker": true,
+              "subresourceIntegrity": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-food-order-cli:build"
+            "browserTarget": "ngx-food-order-cli:build",
+            "hmrWarning": false
           },
           "configurations": {
             "production": {
