@@ -1,16 +1,11 @@
-import { AnyAction, Reducer } from 'redux';
+import { Action, ActionReducer } from '@ngrx/store';
+import { ResetActionTypes } from './reset.actions';
 
-export const RESET_ACTION = '@@REDUX_UTILS/APP_RESET';
-
-export function resetReducer(reducer: Reducer<any>): Reducer<any> {
-  return (state: any, action: AnyAction) => {
-    if (action.type === RESET_ACTION) {
+export function resetReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return (state: any, action: Action) => {
+    if (action.type === ResetActionTypes.Reset) {
       state = undefined;
     }
     return reducer(state, action);
   };
-}
-
-export function resetAction(): AnyAction {
-  return { type: RESET_ACTION };
 }

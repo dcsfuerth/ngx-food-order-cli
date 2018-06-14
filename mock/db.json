@@ -147,6 +147,12 @@
       "articleId": "a-44444",
       "label": "Pizza Salami",
       "price": 6.5
+    },
+    {
+      "articleId": "a-11201",
+      "id": 5,
+      "label": "New Product",
+      "price": 0
     }
   ],
   "users": [

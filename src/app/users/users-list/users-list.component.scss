@@ -1,0 +1,15 @@
+// @import '../../../styles/common/mixins';
+@import '../../../styles/common/variables';
+
+.table {
+  a {
+    &,
+    &:visited {
+      color: $blue-light;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $blue;
+    }
+  }
+}

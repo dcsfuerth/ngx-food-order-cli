@@ -21,8 +21,6 @@ const usersSchema = new schema.Array(userSchema);
 })
 export class HomePageComponent extends StoreComponent implements OnInit {
   public greeting = '';
-  public products: Product[];
-  public loading: boolean;
 
   constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
     super(store, cd);
@@ -32,16 +30,6 @@ export class HomePageComponent extends StoreComponent implements OnInit {
     this.select(greetingSelector, greeting => {
       this.greeting = greeting;
     });
-
-    this.select(productsListSelectors.collection, products => {
-      this.products = products;
-    });
-
-    this.select(productsListSelectors.loading, loading => {
-      this.loading = loading;
-    });
-
-    this.dispatch(new FetchProductsList());
 
     setTimeout(() => {
       this.dispatch(new GreetWorld());

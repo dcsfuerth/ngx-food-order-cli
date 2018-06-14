@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewModel getInstance for a collection gives access to the props data 1`] = `"EARTH"`;
+
+exports[`ViewModel getInstance gives access to the props data 1`] = `"Earth"`;
+
+exports[`ViewModel getProp returns the property value 1`] = `"Dent"`;
+
+exports[`ViewModel identifier returns the hash code of the props attribute 1`] = `11119683663499`;
+
+exports[`ViewModel toJSON returns a clone of the props attribute 1`] = `"{\\"id\\":\\"42\\",\\"firstname\\":\\"Arthur\\",\\"lastname\\":\\"Dent\\",\\"planet\\":null,\\"planets\\":[{\\"name\\":\\"EARTH\\"}]}"`;

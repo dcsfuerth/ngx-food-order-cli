@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-12">
+    <h2>Headline</h2>
+  </div>
+  <div class="col-12">
+    <form [formGroup]="form" (submit)="save()" class="form box">
+      <div class="box-title">
+        {{ product.label }}
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-3">
+          <label for="input-articleId">Article Number</label>
+          <input type="text" id="input-articleId" formControlName="articleId" class="form-control">
+        </div>
+        <div class="col-md-9">
+          <label for="input-label">Label</label>
+          <input type="text" id="input-label" formControlName="label" class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-2">
+          <label for="input-price">Price</label>
+          <input type="number" min="0" step="0.05" id="input-price" formControlName="price">
+        </div>
+      </div>
+
+      <div class="button-containe text-right">
+        <button type="submit" [disabled]="form.invalid">Save Product</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="col-12">
+    <dcs-error-box [error]="error"></dcs-error-box>
+  </div>
+
+  <div class="col-12">
+    <dcs-loading-indicator
+            [loading]="loading"
+            loadingMessage="Loading..."
+            [updating]="updating"
+            updatingMessage="Saving...">
+    </dcs-loading-indicator>
+  </div>
+
+  <div class="col-1 text-right">
+    <div class="button-container">
+      <a routerLink="/products" class="btn btn-white"><< Back</a>
+    </div>
+  </div>
+
+</div>

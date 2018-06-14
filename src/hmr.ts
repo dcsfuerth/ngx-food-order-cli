@@ -1,5 +1,6 @@
 import { ApplicationRef, NgModuleRef } from '@angular/core';
 import { createNewHosts } from '@angularclass/hmr';
+import { SetRootState } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 
@@ -15,7 +16,7 @@ export const hmrBootstrap = (module: any, bootstrap: () => Promise<NgModuleRef<a
 
       if (module.hot.data) {
         store = ngModule.injector.get(Store);
-        store.dispatch({ type: 'SET_ROOT_STATE', payload: module.hot.data.state });
+        store.dispatch(new SetRootState(module.hot.data.state));
       }
     })
     .catch(err => console.log(err));

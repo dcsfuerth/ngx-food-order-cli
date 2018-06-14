@@ -28,10 +28,11 @@ export abstract class StoreComponent extends ContainerComponent {
     notifyChange: boolean = true,
     operators: OperatorFunction<any, R>[] = []
   ): void {
-    const obs = this.store.select(selector).pipe(...operators);
+    const obs: Observable<R> = this.store.select(selector).pipe(...operators);
 
     this.subscribeToObservable(obs, data => {
       cb(data);
+
       if (notifyChange) {
         this.cd.markForCheck();
       }

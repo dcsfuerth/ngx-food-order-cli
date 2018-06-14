@@ -1,6 +1,6 @@
+import hashIt from 'hash-it';
 import { keys } from 'ramda';
 import { Constructor } from './normalized-entity.selectors';
-const hashIt = require('hash-it').default;
 
 export function generateGetter<T extends object, K extends keyof T>(
   instance: ViewModel<T>,

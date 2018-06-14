@@ -1,6 +1,9 @@
 export {
   ApiRequest,
   ApiGetRequest,
+  ApiPostRequest,
+  ApiPutRequest,
+  ApiDeleteRequest,
   ApiRequestActions,
   ApiRequestActionTypes,
 } from './api-request.actions';

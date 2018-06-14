@@ -90,7 +90,7 @@ describe('ViewModel', () => {
 
   describe('getProp', () => {
     it('returns the property value', () => {
-      expect(subject.getProp('lastname')).toEqual('Dent');
+      expect(subject.getProp('lastname')).toMatchSnapshot();
     });
   });
 
@@ -127,9 +127,7 @@ describe('ViewModel', () => {
   describe('toJSON', () => {
     it('returns a clone of the props attribute', () => {
       const json = subject.toJSON();
-      expect(json).toEqual(
-        '{"id":"42","firstname":"Arthur","lastname":"Dent","planet":null,"planets":[{"name":"EARTH"}]}'
-      );
+      expect(json).toMatchSnapshot();
     });
   });
 
@@ -153,7 +151,7 @@ describe('ViewModel', () => {
     });
 
     it('gives access to the props data', () => {
-      expect(subject.planet.name).toEqual('Earth');
+      expect(subject.planet.name).toMatchSnapshot();
     });
 
     describe('for a collection', () => {
@@ -167,15 +165,14 @@ describe('ViewModel', () => {
       });
 
       it('gives access to the props data', () => {
-        expect(subject.planets[0].name).toEqual('EARTH');
+        expect(subject.planets[0].name).toMatchSnapshot();
       });
     });
   });
 
   describe('identifier', () => {
     it('returns the hash code of the props attribute', () => {
-      expect(subject.identifier).toEqual(711788893);
-      expect(subject.identifier).toEqual(711788893);
+      expect(subject.identifier).toMatchSnapshot();
     });
   });
 });

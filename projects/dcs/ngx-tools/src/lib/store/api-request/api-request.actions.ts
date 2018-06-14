@@ -46,6 +46,59 @@ export class ApiGetRequest extends ApiRequest {
   }
 }
 
+export class ApiPostRequest extends ApiRequest {
+  readonly type = ApiRequestActionTypes.ExecuteApiRequest;
+  public payload: IApiActionPayload;
+
+  constructor(
+    url: string,
+    handlers: IApiActionHandlers | string,
+    body: any,
+    normalizrSchema?: Schema,
+    cancel?: Observable<any>,
+    rawDataProcessor?: (data: any) => any
+  ) {
+    super(
+      { url, method: 'POST', options: { body } },
+      handlers,
+      normalizrSchema,
+      cancel,
+      rawDataProcessor
+    );
+  }
+}
+
+export class ApiPutRequest extends ApiRequest {
+  readonly type = ApiRequestActionTypes.ExecuteApiRequest;
+  public payload: IApiActionPayload;
+
+  constructor(
+    url: string,
+    handlers: IApiActionHandlers | string,
+    body: any,
+    normalizrSchema?: Schema,
+    cancel?: Observable<any>,
+    rawDataProcessor?: (data: any) => any
+  ) {
+    super(
+      { url, method: 'PUT', options: { body } },
+      handlers,
+      normalizrSchema,
+      cancel,
+      rawDataProcessor
+    );
+  }
+}
+
+export class ApiDeleteRequest extends ApiRequest {
+  readonly type = ApiRequestActionTypes.ExecuteApiRequest;
+  public payload: IApiActionPayload;
+
+  constructor(url: string, handlers: IApiActionHandlers | string, body: any) {
+    super({ url, method: 'DELETE', options: { body } }, handlers);
+  }
+}
+
 export class ApiError implements Action {
   readonly type = ApiRequestActionTypes.ApiError;
 

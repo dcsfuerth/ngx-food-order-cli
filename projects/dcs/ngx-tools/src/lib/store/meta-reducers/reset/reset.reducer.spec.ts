@@ -1,11 +1,12 @@
-import { AnyAction } from 'redux';
-import { resetAction, resetReducer } from './reset.reducer';
+import { Action } from '@ngrx/store';
+import { Reset } from './reset.actions';
+import { resetReducer } from './reset.reducer';
 
 const INCREASE = 'INCREASE';
 const DECREASE = 'DECREASE';
 
 const rootReducer = resetReducer(
-  (state: number = 4, action: AnyAction): number => {
+  (state: number = 4, action: Action): number => {
     switch (action.type) {
       case INCREASE:
         return state + 1;
@@ -20,6 +21,6 @@ describe('resetReducer', () => {
   it('resets the state to initialState when called with reset action', () => {
     const state = 42;
     expect(rootReducer(state, { type: INCREASE })).toEqual(43);
-    expect(rootReducer(state, resetAction())).toEqual(4);
+    expect(rootReducer(state, new Reset())).toEqual(4);
   });
 });

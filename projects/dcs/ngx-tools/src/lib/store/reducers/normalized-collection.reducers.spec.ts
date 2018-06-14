@@ -1,6 +1,6 @@
-import { Reducer } from 'redux';
-import { INormalizedCollectionState } from './../selectors/interfaces';
-import { generateAsyncActionNames } from '../actions/generators';
+import { ActionReducer } from '@ngrx/store';
+import { IAction, INormalizedCollectionState } from './../selectors/interfaces';
+import { generateAsyncActionNames } from '../utils/actions';
 import {
   generateNormalizedState,
   pushIntoResult,
@@ -202,13 +202,11 @@ describe('reducers on normalized state', () => {
 
     describe('asyncFetchReducerFactory', () => {
       const fetchActions = generateAsyncActionNames('FOO_FETCH');
-      let subject: Reducer<INormalizedCollectionState>;
+      let subject: ActionReducer<INormalizedCollectionState, IAction>;
       let newState: INormalizedCollectionState;
 
       beforeAll(() => {
-        subject = asyncFetchReducerFactory(initialState, fetchActions) as Reducer<
-          INormalizedCollectionState
-        >;
+        subject = asyncFetchReducerFactory(initialState, fetchActions);
       });
 
       describe('startAction', () => {
@@ -303,11 +301,11 @@ describe('reducers on normalized state', () => {
 
     describe('asyncRemoveFromCollectionReducerFactory', () => {
       const removeActions = generateAsyncActionNames('FOO_REMOVE');
-      let subject: Reducer<INormalizedCollectionState>;
+      let subject: ActionReducer<INormalizedCollectionState, IAction>;
       let newState: INormalizedCollectionState;
 
       beforeAll(() => {
-        subject = asyncRemoveFromCollectionReducerFactory(removeActions) as Reducer<
+        subject = asyncRemoveFromCollectionReducerFactory(removeActions) as ActionReducer<
           INormalizedCollectionState
         >;
       });
@@ -409,7 +407,7 @@ describe('reducers on normalized state', () => {
       const createActions = generateAsyncActionNames('FOO_CREATE');
       const updateActions = generateAsyncActionNames('FOO_UPDATE');
       const removeActions = generateAsyncActionNames('FOO_REMOVE');
-      let subject: Reducer<INormalizedCollectionState>;
+      let subject: ActionReducer<INormalizedCollectionState>;
       let newState: INormalizedCollectionState;
 
       beforeAll(() => {

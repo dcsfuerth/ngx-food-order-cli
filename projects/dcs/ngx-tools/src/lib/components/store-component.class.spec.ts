@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { of, Subject } from 'rxjs';
-import { CoreModule } from 'src/app/core/core.module';
 import { StoreComponent } from './store-component.class';
 
 describe('StoreComponent', () => {
@@ -21,7 +20,7 @@ describe('StoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot({}), CoreModule],
+      imports: [StoreModule.forRoot({})],
       declarations: [TestComponent],
       schemas: [],
       providers: [ChangeDetectorRef],

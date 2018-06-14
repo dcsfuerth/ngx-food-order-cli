@@ -1,7 +1,8 @@
-import { Reducer } from 'redux';
-import { INormalizedEntityState } from './../selectors/interfaces';
+import { ActionReducer } from '@ngrx/store';
+import { IAction, INormalizedEntityState } from './../selectors/interfaces';
 import { generateNormalizedState } from './normalized-collection.reducers';
-import { generateAsyncActionNames } from '../actions/generators';
+import { generateAsyncActionNames } from '../utils/actions';
+
 import {
   asyncSaveEntityReducerFactory,
   asyncRemoveEntityReducerFactory,
@@ -26,13 +27,11 @@ describe('reducers on INormalizedEntityState', () => {
 
   describe('asyncSaveEntityReducerFactory', () => {
     const updateActions = generateAsyncActionNames('FOO_UPDATE');
-    let subject: Reducer<INormalizedEntityState>;
+    let subject: ActionReducer<INormalizedEntityState, IAction>;
     let newState: INormalizedEntityState;
 
     beforeAll(() => {
-      subject = asyncSaveEntityReducerFactory(initialState, updateActions) as Reducer<
-        INormalizedEntityState
-      >;
+      subject = asyncSaveEntityReducerFactory(initialState, updateActions);
     });
 
     describe('startAction', () => {
@@ -157,13 +156,11 @@ describe('reducers on INormalizedEntityState', () => {
 
   describe('asyncRemoveEntityReducerFactory', () => {
     const removeActions = generateAsyncActionNames('FOO_REMOVE');
-    let subject: Reducer<INormalizedEntityState>;
+    let subject: ActionReducer<INormalizedEntityState, IAction>;
     let newState: INormalizedEntityState;
 
     beforeAll(() => {
-      subject = asyncRemoveEntityReducerFactory(initialState, removeActions) as Reducer<
-        INormalizedEntityState
-      >;
+      subject = asyncRemoveEntityReducerFactory(initialState, removeActions);
     });
 
     describe('startAction', () => {
@@ -254,7 +251,7 @@ describe('reducers on INormalizedEntityState', () => {
     const updateActions = generateAsyncActionNames('FOO_UPDATE');
     const removeActions = generateAsyncActionNames('FOO_REMOVE');
     let initialEntityState: INormalizedEntityState;
-    let subject: Reducer<INormalizedEntityState>;
+    let subject: ActionReducer<INormalizedEntityState>;
     let newState: INormalizedEntityState;
 
     beforeAll(() => {
