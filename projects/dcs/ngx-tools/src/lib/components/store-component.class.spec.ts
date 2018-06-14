@@ -52,25 +52,31 @@ describe('StoreComponent', () => {
   });
 
   describe('dispatchIfNotLoaded', () => {
-    let cb: jest.Mock;
+    const action = { type: 'TEST_ACTION' };
+    let spy: jest.SpyInstance;
 
     beforeEach(() => {
-      cb = jest.fn().mockImplementation(() => ({ type: 'TEST_ACTION' }));
+      spy = jest.spyOn(subject, 'dispatch');
+    });
+
+    afterEach(() => {
+      spy.mockReset();
+      spy.mockRestore();
     });
 
     it('dispatches the given callback if not loaded', () => {
-      subject.dispatchIfNotLoaded(of(false), cb);
-      expect(cb).toHaveBeenCalled();
+      subject.dispatchIfNotLoaded(of(false), action);
+      expect(spy).toHaveBeenCalled();
     });
 
     it('dispatches the given callback only once', () => {
-      subject.dispatchIfNotLoaded(of(false, false, false), cb);
-      expect(cb).toHaveBeenCalledTimes(1);
+      subject.dispatchIfNotLoaded(of(false, false, false), action);
+      expect(spy).toHaveBeenCalledTimes(1);
     });
 
     it('does nothing if already loaded', () => {
-      subject.dispatchIfNotLoaded(of(true, false), cb);
-      expect(cb).not.toHaveBeenCalled();
+      subject.dispatchIfNotLoaded(of(true, false), action);
+      expect(spy).not.toHaveBeenCalled();
     });
   });
 

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ContainerComponent } from '@dcs/ngx-tools';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { currentProductSelectors } from './../../reducers/products/current-product/current-product.selectors';
@@ -21,13 +21,13 @@ import {
     ></dcs-product-form>
   `,
 })
-export class ProductNewPageComponent extends ContainerComponent implements OnInit {
+export class ProductNewPageComponent extends StoreComponent implements OnInit {
   public product$: Observable<Product>;
   public updating$: Observable<boolean>;
   public error$: Observable<boolean>;
 
-  constructor(private store: Store<State>) {
-    super();
+  constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
+    super(store, cd);
     this.store.dispatch(new ResetCurrentProduct());
   }
 

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ContainerComponent } from '@dcs/ngx-tools';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -21,15 +21,15 @@ import { State } from '../../reducers';
     ></dcs-products-list>
   `,
 })
-export class ProductsListPageComponent extends ContainerComponent implements OnInit {
+export class ProductsListPageComponent extends StoreComponent implements OnInit {
   public products$: Observable<Product[]>;
   public loading$: Observable<boolean>;
   public loaded$: Observable<boolean>;
   public updating$: Observable<boolean>;
   public error$: Observable<any>;
 
-  constructor(private store: Store<State>) {
-    super();
+  constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
+    super(store, cd);
   }
 
   public ngOnInit(): void {

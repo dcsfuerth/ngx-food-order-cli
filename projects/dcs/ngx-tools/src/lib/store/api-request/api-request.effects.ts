@@ -87,11 +87,11 @@ export class ApiRequestEffects {
         this.http
           .request(request.method, getUrl(request.url, this.environment), request.options)
           .pipe(
+            takeUntil(action.payload.cancel || NEVER),
             map(action.payload.rawDataProcessor || defaultDataProcessor),
             map(normalizeData(action)),
             map(handlers.success),
-            catchError(error => of(handlers.error(error), new ApiError({ error, action }))),
-            takeUntil(action.payload.cancel || NEVER)
+            catchError(error => of(handlers.error(error), new ApiError({ error, action })))
           ),
         of(handlers.complete())
       );

@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: './products/products.module#ProductsModule',
     canActivateChild: [AuthGuard],
   },
+  {
+    path: 'order',
+    loadChildren: './order/order.module#OrderModule',
+    canActivateChild: [AuthGuard],
+  },
   // last one
   { path: '**', loadChildren: './not-found/not-found.module#NotFoundModule' },
 ];

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ContainerComponent } from '@dcs/ngx-tools';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { State } from '../../reducers';
@@ -14,11 +14,11 @@ import { authFailedSelector } from '../../reducers/auth/auth.selectors';
       (doAuthenticate)="authenticate($event)">
     </dcs-login>`,
 })
-export class LoginPageComponent extends ContainerComponent {
+export class LoginPageComponent extends StoreComponent {
   public authFailed$: Observable<boolean>;
 
-  constructor(private store: Store<State>) {
-    super();
+  constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
+    super(store, cd);
 
     this.authFailed$ = this.store.select(authFailedSelector);
   }

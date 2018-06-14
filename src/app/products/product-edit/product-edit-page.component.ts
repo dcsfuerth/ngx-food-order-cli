@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContainerComponent, StoreComponent } from '@dcs/ngx-tools';
+import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { currentProductSelectors } from './../../reducers/products/current-product/current-product.selectors';

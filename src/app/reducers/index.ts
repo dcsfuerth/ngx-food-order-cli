@@ -4,6 +4,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import * as fromAuth from './auth/auth.reducer';
 import * as fromHome from './home/home.reducer';
+import * as fromOrder from './order/order.reducer';
 import * as fromProducts from './products/products.reducer';
 import * as fromUsers from './users/users.reducer';
 import { environment } from '../../environments/environment';
@@ -24,6 +25,7 @@ export interface State {
   home: fromHome.State;
   products: fromProducts.State;
   users: fromUsers.State;
+  order: fromOrder.State;
 }
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -37,6 +39,7 @@ export const reducers: ActionReducerMap<State> = {
   home: fromHome.reducer,
   products: fromProducts.reducer,
   users: fromUsers.reducer,
+  order: fromOrder.reducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

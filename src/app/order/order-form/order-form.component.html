@@ -1,0 +1,118 @@
+<div *ngIf="!order.completed && loaded" class="row">
+
+
+  <div class="col-12">
+    <h2>Edit Order</h2>
+  </div>
+
+  <div class="col-12">
+
+
+    <form [formGroup]="form" class="form box">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>User</th>
+            <th>Number of Products</th>
+            <th colspan="2" class="text-right">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of order.items; let i = index; trackBy:trackByIndex"
+              [formGroup]="getItemFormForIndex(i)">
+            <td>
+              <select formControlName="productId">
+                <option *ngFor="let product of products;" [value]="product.id">{{ product.label }}</option>
+              </select>
+            </td>
+            <td>
+              <select formControlName="userId">
+                <option *ngFor="let user of users;" [value]="user.id">{{ user.name }}</option>
+              </select>
+            <td>
+              <input type="number" size="3" min="0" formControlName="numberOfProducts">
+            </td>
+            <td>{{ item.price | currency:'EUR':'symbol' }}</td>
+            <td class="text-right">
+              <button type="button" (click)="deleteItem(i)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4">Sum</td>
+            <td class="text-right">{{ order.price | currency:'EUR':'symbol' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="col-12 button-container text-right">
+          <button type="button" (click)="addRow()">Add Row</button>
+          &nbsp;
+          <button type="button" (click)="completeForm()">Complete Order</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<div *ngIf="order.completed && loaded">
+  <div class="row">
+    <div class="col-12">
+      <h2>Show Order</h2>
+    </div>
+    <div class="col-12">
+      <div class="box">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>User</th>
+              <th>Number of Products</th>
+              <th class="text-right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of order.items; let i = index; trackBy:trackByIndex"
+                [formGroup]="getItemFormForIndex(i)">
+              <td>
+                {{ item.product.label }}
+              </td>
+              <td>
+                {{ item.user.name }}
+              </td>
+              <td>
+                {{ item.numberOfProducts }}
+              </td>
+              <td class="text-right">{{ item.price | currency:'EUR':'symbol' }}</td>
+            </tr>
+            <tr>
+              <td colspan="3">Sum</td>
+              <td class="text-right">{{ order.price | currency:'EUR':'symbol' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12">
+    <a routerLink="/order">back</a>
+  </div>
+  <div class="col-12">
+    <dcs-loading-indicator
+            [loading]="loading"
+            loadingMessage="Loading..."
+            [updating]="updating"
+            updatingMessage="Saving...">
+    </dcs-loading-indicator>
+  </div>
+  <div class="col-12">
+    <dcs-error-box [error]="error"></dcs-error-box>
+  </div>
+</div>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContainerComponent } from '@dcs/ngx-tools';
+import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { currentUserSelectors } from './../../reducers/users/current-user/current-user.selectors';
@@ -23,14 +23,18 @@ import {
     ></dcs-user-form>
   `,
 })
-export class UserEditPageComponent extends ContainerComponent implements OnInit {
+export class UserEditPageComponent extends StoreComponent implements OnInit {
   public user$: Observable<User>;
   public updating$: Observable<boolean>;
   public loading$: Observable<boolean>;
   public error$: Observable<any>;
 
-  constructor(private store: Store<State>, private route: ActivatedRoute) {
-    super();
+  constructor(
+    protected store: Store<State>,
+    protected cd: ChangeDetectorRef,
+    private route: ActivatedRoute
+  ) {
+    super(store, cd);
 
     this.user$ = this.store.select(currentUserSelectors.entity);
     this.updating$ = this.store.select(currentUserSelectors.updating);

@@ -14,10 +14,10 @@ export abstract class StoreComponent extends ContainerComponent {
     return this.store.dispatch(action);
   }
 
-  public dispatchIfNotLoaded(loaded$: Observable<boolean>, callback: () => Action): void {
+  public dispatchIfNotLoaded(loaded$: Observable<boolean>, callback: Action): void {
     this.subscribeToObservable(loaded$.pipe(take(1)), loaded => {
       if (!loaded) {
-        this.dispatch(callback());
+        this.dispatch(callback);
       }
     });
   }

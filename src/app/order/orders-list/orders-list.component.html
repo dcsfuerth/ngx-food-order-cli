@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-12">
+    <h2>Orders list</h2>
+  </div>
+  <div class="col-12">
+    <div class="box" *ngIf="showData">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Items</th>
+            <th>Price</th>
+            <th>Completed</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders;">
+            <td>{{ order.numberOfItems }}</td>
+            <td>{{ order.price | currency:'EUR':'symbol' }}</td>
+            <td>{{ order.completed }}</td>
+            <td>
+              <a routerLink="/order/{{ order.id }}/edit">{{ order.completed ? 'show' : 'edit' }}</a>&nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <dcs-loading-indicator [loading]="loading" loadingMessage="Loading..." [updating]="updating" updatingMessage="Saving...">
+    </dcs-loading-indicator>
+  </div>
+
+
+  <div class="col-12">
+    <dcs-error-box [error]="error"></dcs-error-box>
+  </div>
+
+
+  <div class="col-12">
+    <div class="button-container">
+      <span (click)="doOrderCreate.emit()" class="btn">Create Order</span>
+    </div>
+  </div>
+
+</div>

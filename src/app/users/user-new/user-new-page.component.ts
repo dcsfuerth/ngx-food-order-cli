@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { ContainerComponent, StoreComponent } from '@dcs/ngx-tools';
+import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { currentUserSelectors } from './../../reducers/users/current-user/current-user.selectors';
