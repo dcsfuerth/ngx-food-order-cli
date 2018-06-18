@@ -1,3 +1,11 @@
+<a name="3.2.0"></a>
+
+# [3.2.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.1.1...v3.2.0) (2018-06-18)
+
+### Features
+
+- **packages:** trying to automate package version generation ([5828974](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/5828974))
+
 <a name="3.1.1"></a>
 
 ## [3.1.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.1.0...v3.1.1) (2018-06-18)
