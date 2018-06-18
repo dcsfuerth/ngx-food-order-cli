@@ -28,7 +28,7 @@
     "stats:production": "webpack-bundle-analyzer dist/ngx-food-order-cli/stats.json",
     "version:update_packages": "cd projects/dcs/ngx-tools && npm version $npm_package_version",
     "version:stage_packages": "git add projects/dcs/ngx-tools/package.json CHANGELOG.md",
-    "version:commit_packages": "git commit -m 'chore(version): new package version $npm_package_version'",
+    "version:commit_packages": "git commit -m \"chore(version): new package version $npm_package_version\"",
     "version": "run-s version:update_packages changelog version:stage_packages version:commit_packages"
   },
   "private": true,
