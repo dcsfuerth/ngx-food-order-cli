@@ -1,6 +1,22 @@
-<a name="3.0.0"></a>
+<a name="3.1.1"></a>
 
-# 3.0.0 (2018-06-18)
+## [3.1.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.1.0...v3.1.1) (2018-06-18)
+
+<a name="3.1.0"></a>
+
+# [3.1.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.0.1...v3.1.0) (2018-06-18)
+
+### Features
+
+- **packages:** testing npm version script to sync package versions ([91f1edc](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/91f1edc))
+
+<a name="3.0.1"></a>
+
+## [3.0.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/6d3428f...v3.0.1) (2018-06-18)
+
+### Bug Fixes
+
+- **ngx-tools:** removed ngrx-store-freeze because buggy ([53948f8](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/53948f8))
 
 ### Features
 
