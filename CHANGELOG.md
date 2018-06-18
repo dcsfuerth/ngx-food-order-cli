@@ -1,3 +1,11 @@
+<a name="3.3.0"></a>
+
+# [3.3.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.2.1...v3.3.0) (2018-06-18)
+
+### Features
+
+- **ngx-tools:** replaced hash-it with smaller, reusable libs ([fd48237](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/fd48237))
+
 <a name="3.2.1"></a>
 
 ## [3.2.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.2.0...v3.2.1) (2018-06-18)
