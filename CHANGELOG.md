@@ -1,3 +1,11 @@
+<a name="3.3.1"></a>
+
+## [3.3.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.3.0...v3.3.1) (2018-06-18)
+
+### Bug Fixes
+
+- **packages:** fixed peerDependencies ([f3d747b](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/f3d747b))
+
 <a name="3.3.0"></a>
 
 # [3.3.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.2.1...v3.3.0) (2018-06-18)
