@@ -1,15 +1,13 @@
 import { ActionReducer } from '@ngrx/store';
-import stringify from 'fast-safe-stringify';
+import stringify from 'fast-json-stable-stringify';
 
 export function immutableDevMetaReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return function(state: any, action: any) {
-    const prevStateSerialized = stringify.stable(state);
+    const prevStateSerialized = stringify(state);
     const newState = reducer(state, action);
 
     if (state === newState) {
-      const before = performance.now();
-      const newStateSerialized = stringify.stable(newState);
-      console.log('cost', performance.now() - before);
+      const newStateSerialized = stringify(newState);
 
       if (prevStateSerialized !== newStateSerialized) {
         throw new TypeError(

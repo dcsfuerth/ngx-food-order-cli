@@ -14,7 +14,6 @@ import {
   resetReducer,
   immutableDevMetaReducer,
 } from '@dcs/ngx-tools';
-// import { storeFreeze } from 'ngrx-store-freeze';
 
 import {
   ActionReducer,

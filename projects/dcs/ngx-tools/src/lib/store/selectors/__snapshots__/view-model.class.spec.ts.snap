@@ -6,6 +6,6 @@ exports[`ViewModel getInstance gives access to the props data 1`] = `"Earth"`;
 
 exports[`ViewModel getProp returns the property value 1`] = `"Dent"`;
 
-exports[`ViewModel identifier returns the hash code of the props attribute 1`] = `11119683663499`;
+exports[`ViewModel identifier returns the hash code of the props attribute 1`] = `"15729acc05a6e14de9ef96e5a8e547cf"`;
 
 exports[`ViewModel toJSON returns a clone of the props attribute 1`] = `"{\\"id\\":\\"42\\",\\"firstname\\":\\"Arthur\\",\\"lastname\\":\\"Dent\\",\\"planet\\":null,\\"planets\\":[{\\"name\\":\\"EARTH\\"}]}"`;

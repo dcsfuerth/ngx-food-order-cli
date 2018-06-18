@@ -1,6 +1,6 @@
-import hashIt from 'hash-it';
 import { keys } from 'ramda';
 import { Constructor } from './normalized-entity.selectors';
+import { getHash } from '../utils/hash';
 
 export function generateGetter<T extends object, K extends keyof T>(
   instance: ViewModel<T>,
@@ -29,7 +29,7 @@ export abstract class ViewModel<T extends object> {
 
   get identifier(): string {
     if (!this._identifier) {
-      this._identifier = hashIt(this.props);
+      this._identifier = getHash(this.props);
     }
     return this._identifier;
   }
