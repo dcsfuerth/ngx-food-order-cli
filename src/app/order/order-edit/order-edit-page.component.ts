@@ -43,7 +43,7 @@ export class OrderEditPageComponent extends StoreComponent {
   public usersLoaded$: Observable<boolean>;
   public products$: Observable<Product[]>;
   public users$: Observable<User[]>;
-  private formChanged$ = new Subject<any>();
+  private formChanged$: Subject<any> = new Subject<any>();
 
   constructor(
     protected store: Store<State>,
@@ -51,6 +51,9 @@ export class OrderEditPageComponent extends StoreComponent {
     route: ActivatedRoute
   ) {
     super(store, cd);
+
+    this.formChanged$ = new Subject();
+    console.warn('CONST', Object.isFrozen(this.formChanged$));
 
     this.order$ = this.store.select(currentOrderSelectors.entity);
     this.ordersLoaded$ = this.store.select(currentOrderSelectors.loaded);
@@ -71,12 +74,20 @@ export class OrderEditPageComponent extends StoreComponent {
   }
 
   public updateState(formData: IOrder) {
+    console.warn(
+      'FC',
+      this.formChanged$,
+      Object.isFrozen(this.formChanged$),
+      Object.isFrozen(new Subject()),
+      Object.isFrozen(this)
+    );
+
     this.formChanged$.next(true);
 
     this.store.dispatch(
       // TODO: trace stange sealed error inside rxjs
-      // new UpdateCurrentOrder(new Order(formData), this.formChanged$)
-      new UpdateCurrentOrder(new Order(formData))
+      new UpdateCurrentOrder(new Order(formData), this.formChanged$)
+      // new UpdateCurrentOrder(new Order(formData))
     );
   }
 }

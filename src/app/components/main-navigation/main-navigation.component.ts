@@ -17,7 +17,7 @@ export class MainNavigationComponent extends StoreComponent implements OnInit {
   constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
     super(store, cd);
 
-    this.select(isLoggedInSelector, isLoggedIn => {
+    this.substribeToState(isLoggedInSelector, isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
     });
   }

@@ -1,9 +1,14 @@
 {
   "name": "@dcs/ngx-tools",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "normalizr": "^3.2.4"
+    "fast-safe-stringify": "^2.0.4",
+    "hash-it": "^4.0.1",
+    "ngrx-store-logger": "^0.2.2",
+    "normalizr": "^3.2.4",
+    "ramda": "^0.25.0",
+    "rxjs": "^6.2.0"
   }
 }

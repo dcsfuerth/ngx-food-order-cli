@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { StoreComponent } from '@dcs/ngx-tools';
 import { ApiGetRequest, ApiRequest } from '@dcs/ngx-tools';
+import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { schema } from 'normalizr';
 import { State } from '../reducers';
@@ -27,7 +27,7 @@ export class HomePageComponent extends StoreComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.select(greetingSelector, greeting => {
+    this.substribeToState(greetingSelector, greeting => {
       this.greeting = greeting;
     });
 

@@ -1,6 +1,4 @@
-import { apiError, hmrStateSetter, IApiErrorState, logger, resetReducer } from '@dcs/ngx-tools';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
-import { storeFreeze } from 'ngrx-store-freeze';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import * as fromAuth from './auth/auth.reducer';
 import * as fromHome from './home/home.reducer';
@@ -8,6 +6,15 @@ import * as fromOrder from './order/order.reducer';
 import * as fromProducts from './products/products.reducer';
 import * as fromUsers from './users/users.reducer';
 import { environment } from '../../environments/environment';
+import {
+  apiError,
+  hmrStateSetter,
+  IApiErrorState,
+  logger,
+  resetReducer,
+  immutableDevMetaReducer,
+} from '@dcs/ngx-tools';
+// import { storeFreeze } from 'ngrx-store-freeze';
 
 import {
   ActionReducer,
@@ -43,5 +50,5 @@ export const reducers: ActionReducerMap<State> = {
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? [storeFreeze, logger, resetReducer, hmrStateSetter, localStorageSyncReducer]
+  ? [immutableDevMetaReducer, logger, resetReducer, hmrStateSetter, localStorageSyncReducer]
   : [resetReducer, localStorageSyncReducer];

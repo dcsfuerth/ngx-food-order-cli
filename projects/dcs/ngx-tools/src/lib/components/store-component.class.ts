@@ -22,7 +22,7 @@ export abstract class StoreComponent extends ContainerComponent {
     });
   }
 
-  public select<R>(
+  public substribeToState<R>(
     selector: (state: any) => R,
     cb: (data: R) => void,
     notifyChange: boolean = true,
