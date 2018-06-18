@@ -1,3 +1,11 @@
+<a name="3.2.1"></a>
+
+## [3.2.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.2.0...v3.2.1) (2018-06-18)
+
+### Bug Fixes
+
+- **packages:** variable $npm_package_version is not replaced ([0930ea3](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/0930ea3))
+
 <a name="3.2.0"></a>
 
 # [3.2.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.1.1...v3.2.0) (2018-06-18)
