@@ -52,7 +52,6 @@
     "core-js": "^2.5.4",
     "fast-json-stable-stringify": "^2.0.0",
     "font-awesome": "^4.7.0",
-    "hash-it": "^4.0.1",
     "md5": "^2.2.1",
     "ngrx-store-localstorage": "^5.0.0",
     "ngx-bootstrap": "^3.0.0",

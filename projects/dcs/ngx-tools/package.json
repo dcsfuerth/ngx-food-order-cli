@@ -5,7 +5,7 @@
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
     "fast-json-stable-stringify": "^2.0.0",
-    "hash-it": "^4.0.1",
+    "md5": "^2.2.1",
     "ngrx-store-logger": "^0.2.2",
     "normalizr": "^3.2.4",
     "ramda": "^0.25.0",
