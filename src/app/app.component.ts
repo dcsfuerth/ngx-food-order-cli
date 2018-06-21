@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'dcs';
-
   public ngOnInit() {
     console.log('Site load:', performance.now().toFixed(2), 'ms!!');
   }
