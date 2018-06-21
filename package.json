@@ -20,7 +20,9 @@
     "commitmsg": "commitlint -E GIT_PARAMS",
     "precommit": "lint-staged",
     "prepush": "run-s build:production build:packages",
-    "docs": "compodoc -p src/tsconfig.app.json --silent",
+    "docs:app": "compodoc -p src/tsconfig.app.json --silent --output documentation/app",
+    "docs:ngx-tools": "typedoc --tsconfig projects/dcs/ngx-tools/tsconfig.lib.json --out documentation/ngx-tools --mode file",
+    "docs": "run-s docs:app docs:ngx-tools",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "compile:production": "ng build --prod --stats-json",
     "build:production": "run-s lint test:coverage compile:production docs",
@@ -93,6 +95,7 @@
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "~5.10.0",
+    "typedoc": "^0.11.1",
     "typescript": "~2.7.2",
     "webpack-bundle-analyzer": "^2.13.1"
   },
