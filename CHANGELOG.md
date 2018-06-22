@@ -1,3 +1,12 @@
+<a name="3.4.0"></a>
+
+# [3.4.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.3.1...v3.4.0) (2018-06-22)
+
+### Features
+
+- **ngx-utils:** added concept of crud\*ManagerFactory ([2a0d687](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/2a0d687))
+- **packages:** package updates & removed karma setup ([1b6105d](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/1b6105d))
+
 <a name="3.3.1"></a>
 
 ## [3.3.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.3.0...v3.3.1) (2018-06-18)
