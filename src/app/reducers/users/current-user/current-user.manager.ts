@@ -4,7 +4,6 @@ import { IUser, User } from '../models/user.class';
 import {
   crudEntityManagerFactory,
   INormalizedEntityState,
-  generateNormalizedState,
   generateNormalizedEntityState,
 } from '@dcs/ngx-tools';
 

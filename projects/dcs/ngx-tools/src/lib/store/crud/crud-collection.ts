@@ -37,7 +37,7 @@ export function crudCollectionManagerFactory<S extends INormalizedCollectionStat
   schema: Schema,
   entityConstructor: Constructor<T>
 ): ICrudCollectionManager<S, R, T> {
-  const fetchActions = generateAsyncActionNames(baseName);
+  const fetchActions = generateAsyncActionNames(`[${baseName}] Fetch`);
   const actions = {
     ...entityActions,
     fetch: fetchActions,
