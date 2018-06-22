@@ -4,7 +4,7 @@ import { Action } from '@ngrx/store';
 import { Observable, OperatorFunction } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { ContainerComponent } from './container-component.class';
-import { ISelector } from '@dcs/ngx-tools';
+import { ISelector } from '../store/selectors/normalized-entity.selectors';
 
 export abstract class StoreComponent extends ContainerComponent {
   constructor(protected store: Store<any>, protected cd: ChangeDetectorRef) {
