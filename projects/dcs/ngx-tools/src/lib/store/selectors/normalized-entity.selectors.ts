@@ -8,6 +8,19 @@ export type ISubStateSelector<S, E extends INormalizedState = INormalizedEntityS
   state: S
 ) => E;
 
+export type ISelector<S, T> = (state: S) => T;
+
+export interface INormalizedEntitySelector<S, R, T> {
+  subState: ISubStateSelector<S>;
+  loading: ISelector<S, boolean>;
+  loaded: ISelector<S, boolean>;
+  updating: ISelector<S, boolean>;
+  error: ISelector<S, any>;
+  updatedAt: ISelector<S, Date>;
+  rawEntity: ISelector<S, R>;
+  entity: ISelector<S, T>;
+}
+
 export function subStateKeySelectorFactory<
   S,
   T,
@@ -36,7 +49,7 @@ export function normalizedEntitySelectorFactory<S, R, T>(
   subStateSelector: ISubStateSelector<S>,
   schema: Schema,
   entityConstructor: Constructor<T>
-) {
+): INormalizedEntitySelector<S, R, T> {
   const rawSelector = rawEntitySelectorFactory<S, R>(subStateSelector, schema);
   return {
     subState: subStateSelector,

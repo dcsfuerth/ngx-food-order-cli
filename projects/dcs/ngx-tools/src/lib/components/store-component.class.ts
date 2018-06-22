@@ -4,6 +4,7 @@ import { Action } from '@ngrx/store';
 import { Observable, OperatorFunction } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { ContainerComponent } from './container-component.class';
+import { ISelector } from '@dcs/ngx-tools';
 
 export abstract class StoreComponent extends ContainerComponent {
   constructor(protected store: Store<any>, protected cd: ChangeDetectorRef) {
@@ -20,6 +21,10 @@ export abstract class StoreComponent extends ContainerComponent {
         this.dispatch(callback);
       }
     });
+  }
+
+  public select<S, R>(selector: ISelector<S, R>): Observable<R> {
+    return this.store.select(selector);
   }
 
   public substribeToState<R>(

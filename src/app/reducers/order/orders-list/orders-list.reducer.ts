@@ -12,6 +12,7 @@ import {
   INormalizedCollectionState,
   normalizedCollectionReducerFactory,
   IAction,
+  generateNormalizedCollectionState,
 } from '@dcs/ngx-tools';
 
 export interface IOrdersListState extends INormalizedCollectionState {
@@ -22,10 +23,10 @@ export interface IOrdersListState extends INormalizedCollectionState {
   };
 }
 
-export const initialState: IOrdersListState = Object.freeze({
-  ...generateNormalizedState(),
-  result: [] as string[],
-  entities: { orders: {}, products: {}, users: {} },
+export const initialState = generateNormalizedCollectionState<IOrdersListState>({
+  orders: {},
+  products: {},
+  users: {},
 });
 
 export const normalizedReducer = normalizedCollectionReducerFactory<IOrdersListState>(

@@ -9,9 +9,9 @@ import { ordersListSelectors } from './../../reducers/order/orders-list/orders-l
 import { FetchProductsList } from './../../reducers/products/products-list/products-list.actions';
 import { productsListSelectors } from './../../reducers/products/products-list/products-list.selectors';
 import { FetchUsersList } from './../../reducers/users/users-list/users-list.actions';
-import { usersListSelectors } from './../../reducers/users/users-list/users-list.selectors';
 import { State } from '../../reducers';
 import { CreateCurrentOrder } from '../../reducers/order/current-order/current-order.actions';
+import { usersListManager } from '../../reducers/users/users-list/users-list.mananger';
 
 export const debounce = (obs$: Observable<any>) => obs$.pipe(debounceTime(100));
 
@@ -38,12 +38,12 @@ export class OrdersListPageComponent extends StoreComponent implements OnInit {
   constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
     super(store, cd);
 
-    this.orders$ = this.store.select(ordersListSelectors.collection).pipe(debounce);
-    this.ordersLoaded$ = this.store.select(ordersListSelectors.loaded);
-    this.productsLoaded$ = this.store.select(productsListSelectors.loaded);
-    this.usersLoaded$ = this.store.select(usersListSelectors.loaded);
-    this.loading$ = this.store.select(ordersListSelectors.loading);
-    this.updating$ = this.store.select(ordersListSelectors.updating);
+    this.orders$ = this.select(ordersListSelectors.collection).pipe(debounce);
+    this.ordersLoaded$ = this.select(ordersListSelectors.loaded);
+    this.productsLoaded$ = this.select(productsListSelectors.loaded);
+    this.usersLoaded$ = this.select(usersListManager.selectors.loaded);
+    this.loading$ = this.select(ordersListSelectors.loading);
+    this.updating$ = this.select(ordersListSelectors.updating);
   }
 
   public ngOnInit() {

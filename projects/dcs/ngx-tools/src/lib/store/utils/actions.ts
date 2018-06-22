@@ -7,6 +7,13 @@ export interface IAsyncActionNames {
   reset: string;
 }
 
+export interface ICrudActionNames {
+  fetch: IAsyncActionNames;
+  create: IAsyncActionNames;
+  update: IAsyncActionNames;
+  delete: IAsyncActionNames;
+}
+
 /**
  * Generates action names via naming convention .
  *
@@ -31,5 +38,14 @@ export function generateAsyncActionNames(baseName: string): IAsyncActionNames {
     error: baseName + ' ERROR',
     complete: baseName + ' COMPLETE',
     reset: baseName + ' RESET',
+  };
+}
+
+export function generateCrudActionNames(baseName: string): ICrudActionNames {
+  return {
+    fetch: generateAsyncActionNames(`[${baseName}] Fetch`),
+    create: generateAsyncActionNames(`[${baseName}] Create`),
+    update: generateAsyncActionNames(`[${baseName}] Update`),
+    delete: generateAsyncActionNames(`[${baseName}] Delete`),
   };
 }

@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { currentUserSelectors } from './../../reducers/users/current-user/current-user.selectors';
 import { User } from './../../reducers/users/models/user.class';
 import { State } from '../../reducers';
 
@@ -10,6 +9,7 @@ import {
   CreateCurrentUser,
   ResetCurrentUser,
 } from './../../reducers/users/current-user/current-user.actions';
+import { currentUserManager } from '../../reducers/users/current-user/current-user.manager';
 
 @Component({
   selector: 'dcs-user-new-page',
@@ -29,11 +29,11 @@ export class UserNewPageComponent extends StoreComponent {
 
   constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
     super(store, cd);
-    this.store.select(currentUserSelectors.entity);
-    this.store.select(currentUserSelectors.updating);
-    this.store.select(currentUserSelectors.error);
-
     this.store.dispatch(new ResetCurrentUser());
+
+    this.user$ = this.select(currentUserManager.selectors.entity);
+    this.updating$ = this.select(currentUserManager.selectors.updating);
+    this.error$ = this.select(currentUserManager.selectors.error);
   }
 
   public update(user: User) {

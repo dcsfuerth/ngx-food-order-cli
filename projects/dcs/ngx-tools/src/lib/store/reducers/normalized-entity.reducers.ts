@@ -1,10 +1,23 @@
 import { __, compose, CurriedFunction2, CurriedFunction3, curry } from 'ramda';
-import { asyncFetchReducerFactory } from './normalized-collection.reducers';
 import { IAction, INormalizedEntityState, INormalizedState } from '../selectors/interfaces';
 import { IAsyncActionNames } from '../utils/actions';
+import {
+  asyncFetchReducerFactory,
+  generateNormalizedState,
+} from './normalized-collection.reducers';
 
 // ARGH Typescript
 export { CurriedFunction2, CurriedFunction3 };
+
+export function generateNormalizedEntityState<
+  S extends INormalizedEntityState = INormalizedEntityState
+>(entities: { [key in keyof S['entities']]: {} }): S {
+  return Object.freeze({
+    ...generateNormalizedState(),
+    result: '',
+    entities,
+  }) as any;
+}
 
 export function asyncSaveEntityReducerFactory<S extends INormalizedState>(
   initialState: S,

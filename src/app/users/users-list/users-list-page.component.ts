@@ -7,7 +7,7 @@ import { DeleteCurrentUser } from './../../reducers/users/current-user/current-u
 import { State } from '../../reducers';
 import { User } from '../../reducers/users/models/user.class';
 import { FetchUsersList } from '../../reducers/users/users-list/users-list.actions';
-import { usersListSelectors } from '../../reducers/users/users-list/users-list.selectors';
+import { usersListManager } from '../../reducers/users/users-list/users-list.mananger';
 
 @Component({
   selector: 'dcs-users-list-page',
@@ -33,11 +33,11 @@ export class UsersListPageComponent extends StoreComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.users$ = this.store.select(usersListSelectors.collection);
-    this.loading$ = this.store.select(usersListSelectors.loading);
-    this.loaded$ = this.store.select(usersListSelectors.loaded);
-    this.updating$ = this.store.select(usersListSelectors.updating);
-    this.error$ = this.store.select(usersListSelectors.error);
+    this.users$ = this.select(usersListManager.selectors.collection);
+    this.loading$ = this.select(usersListManager.selectors.loading);
+    this.loaded$ = this.select(usersListManager.selectors.loaded);
+    this.updating$ = this.select(usersListManager.selectors.updating);
+    this.error$ = this.select(usersListManager.selectors.error);
 
     this.subscribeToObservable(this.loaded$.pipe(take(1)), loaded => {
       if (!loaded) {

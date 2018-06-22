@@ -9,6 +9,7 @@ import {
   asyncFetchReducerFactory,
   asyncSaveEntityReducerFactory,
   IAction,
+  generateNormalizedEntityState,
 } from '@dcs/ngx-tools';
 
 export interface ICurrentOrderState extends INormalizedEntityState {
@@ -19,10 +20,10 @@ export interface ICurrentOrderState extends INormalizedEntityState {
   };
 }
 
-export const initialState: ICurrentOrderState = Object.freeze({
-  ...generateNormalizedState(),
-  result: '',
-  entities: { orders: {}, products: {}, users: {} },
+export const initialState = generateNormalizedEntityState<ICurrentOrderState>({
+  orders: {},
+  products: {},
+  users: {},
 });
 
 const fetchReducer = asyncFetchReducerFactory(initialState, fetchActions);

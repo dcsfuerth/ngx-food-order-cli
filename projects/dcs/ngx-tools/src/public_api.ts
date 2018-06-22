@@ -10,5 +10,6 @@ export * from './lib/store/reducers';
 export * from './lib/store/meta-reducers';
 export * from './lib/store/router';
 export * from './lib/store/selectors';
+export * from './lib/store/crud';
 export * from './lib/interfaces';
 export * from './lib/tokens';

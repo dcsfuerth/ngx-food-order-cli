@@ -1,33 +1,8 @@
 import { Action } from '@ngrx/store';
-import { createActions, deleteActions, fetchActions, updateActions } from './current-user.actions';
-import { IUser } from '../models/user.class';
-
-import {
-  INormalizedEntityState,
-  generateNormalizedState,
-  normalizedEntityReducerFactory,
-} from '@dcs/ngx-tools';
-
-export interface ICurrentUserState extends INormalizedEntityState {
-  entities: { users: { [key: string]: IUser } };
-}
-
-export const initialState: ICurrentUserState = Object.freeze({
-  ...generateNormalizedState(),
-  result: '',
-  entities: { users: {} },
-});
-
-export const currentUserDefaultReducer = normalizedEntityReducerFactory(
-  initialState,
-  fetchActions,
-  createActions,
-  updateActions,
-  deleteActions
-);
+import { currentUserManager, ICurrentUserState } from './current-user.manager';
 
 export const currentUser = (
-  state: ICurrentUserState = initialState,
+  state: ICurrentUserState = currentUserManager.initialState,
   action: Action
 ): ICurrentUserState => {
   switch (
@@ -36,5 +11,5 @@ export const currentUser = (
   ) {
   }
 
-  return currentUserDefaultReducer(state, action);
+  return currentUserManager.reducer(state, action);
 };

@@ -1,12 +1,12 @@
 import { schema } from 'normalizr';
 import { productSchema } from './../../products/current-product/current-product.schema';
-import { userSchema } from './../../users/current-user/current-user.schema';
+import { currentUserManager } from './../../users/current-user/current-user.manager';
 
 export const itemSchema = new schema.Entity(
   'items',
   {
     product: productSchema,
-    user: userSchema,
+    user: currentUserManager.schema,
   },
   {
     idAttribute(entity, parent) {

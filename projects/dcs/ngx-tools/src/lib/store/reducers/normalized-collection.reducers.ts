@@ -30,6 +30,16 @@ export const generateNormalizedState = (): INormalizedState => {
   };
 };
 
+export function generateNormalizedCollectionState<
+  S extends INormalizedCollectionState = INormalizedCollectionState
+>(entities: { [key in keyof S['entities']]: {} }): S {
+  return Object.freeze({
+    ...generateNormalizedState(),
+    result: [] as string[],
+    entities,
+  }) as any;
+}
+
 export const updateEntity = curry((key: string, action: IAction) => {
   const entityLens = lensPath(['entities', key, action.payload.result]);
   return set(entityLens, view(entityLens, action.payload));

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from './../../reducers/users/models/user.class';
 
@@ -26,8 +26,8 @@ export class UserFormComponent implements OnChanges {
     });
   }
 
-  public ngOnChanges() {
-    this.form.setValue(this.user.toObject());
+  public ngOnChanges(changes: SimpleChanges) {
+    this.form.setValue(changes.user.currentValue.toObject());
   }
 
   public save() {

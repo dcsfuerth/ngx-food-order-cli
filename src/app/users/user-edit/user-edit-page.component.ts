@@ -3,13 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { currentUserSelectors } from './../../reducers/users/current-user/current-user.selectors';
 import { User } from './../../reducers/users/models/user.class';
 import { State } from '../../reducers';
 import {
   FetchCurrentUser,
   UpdateCurrentUser,
 } from './../../reducers/users/current-user/current-user.actions';
+import { currentUserManager } from '../../reducers/users/current-user/current-user.manager';
 
 @Component({
   selector: 'dcs-user-edit-page',
@@ -36,10 +36,10 @@ export class UserEditPageComponent extends StoreComponent implements OnInit {
   ) {
     super(store, cd);
 
-    this.user$ = this.store.select(currentUserSelectors.entity);
-    this.updating$ = this.store.select(currentUserSelectors.updating);
-    this.loading$ = this.store.select(currentUserSelectors.loading);
-    this.error$ = this.store.select(currentUserSelectors.error);
+    this.user$ = this.select(currentUserManager.selectors.entity);
+    this.updating$ = this.select(currentUserManager.selectors.updating);
+    this.loading$ = this.select(currentUserManager.selectors.loading);
+    this.error$ = this.select(currentUserManager.selectors.error);
   }
 
   public ngOnInit() {

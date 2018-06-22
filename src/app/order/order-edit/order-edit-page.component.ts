@@ -11,8 +11,8 @@ import { FetchProductsList } from './../../reducers/products/products-list/produ
 import { productsListSelectors } from './../../reducers/products/products-list/products-list.selectors';
 import { User } from './../../reducers/users/models/user.class';
 import { FetchUsersList } from './../../reducers/users/users-list/users-list.actions';
-import { usersListSelectors } from './../../reducers/users/users-list/users-list.selectors';
 import { State } from '../../reducers';
+import { usersListManager } from '../../reducers/users/users-list/users-list.mananger';
 import {
   FetchCurrentOrder,
   UpdateCurrentOrder,
@@ -55,15 +55,15 @@ export class OrderEditPageComponent extends StoreComponent {
     this.formChanged$ = new Subject();
     console.warn('CONST', Object.isFrozen(this.formChanged$));
 
-    this.order$ = this.store.select(currentOrderSelectors.entity);
-    this.ordersLoaded$ = this.store.select(currentOrderSelectors.loaded);
-    this.ordersLoading$ = this.store.select(currentOrderSelectors.loading);
-    this.updating$ = this.store.select(currentOrderSelectors.updating);
-    this.error$ = this.store.select(currentOrderSelectors.error);
-    this.productsLoaded$ = this.store.select(productsListSelectors.loaded);
-    this.usersLoaded$ = this.store.select(usersListSelectors.loaded);
-    this.products$ = this.store.select(productsListSelectors.collection);
-    this.users$ = this.store.select(usersListSelectors.collection);
+    this.order$ = this.select(currentOrderSelectors.entity);
+    this.ordersLoaded$ = this.select(currentOrderSelectors.loaded);
+    this.ordersLoading$ = this.select(currentOrderSelectors.loading);
+    this.updating$ = this.select(currentOrderSelectors.updating);
+    this.error$ = this.select(currentOrderSelectors.error);
+    this.productsLoaded$ = this.select(productsListSelectors.loaded);
+    this.usersLoaded$ = this.select(usersListManager.selectors.loaded);
+    this.products$ = this.select(productsListSelectors.collection);
+    this.users$ = this.select(usersListManager.selectors.collection);
 
     this.dispatchIfNotLoaded(this.productsLoaded$, new FetchProductsList());
     this.dispatchIfNotLoaded(this.usersLoaded$, new FetchUsersList());

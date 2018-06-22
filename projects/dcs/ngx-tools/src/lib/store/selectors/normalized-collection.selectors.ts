@@ -1,12 +1,24 @@
 import { createSelector, MemoizedSelector } from '@ngrx/store';
 import { denormalize, Schema } from 'normalizr';
 import { INormalizedCollectionState } from './interfaces';
+import { ISelector } from './normalized-entity.selectors';
 
 import {
   Constructor,
   ISubStateSelector,
   subStateKeySelectorFactory,
 } from './normalized-entity.selectors';
+
+export interface INormalizedCollectionSelector<S, R, T> {
+  subState: ISubStateSelector<S, INormalizedCollectionState>;
+  loading: ISelector<S, boolean>;
+  loaded: ISelector<S, boolean>;
+  updating: ISelector<S, boolean>;
+  error: ISelector<S, any>;
+  updatedAt: ISelector<S, Date>;
+  rawCollection: ISelector<S, R[]>;
+  collection: ISelector<S, T[]>;
+}
 
 export function rawCollectionSelectorFactory<S, E>(
   subStateSelector: ISubStateSelector<S, INormalizedCollectionState>,
@@ -31,7 +43,7 @@ export function normalizedCollectionSelectorFactory<S, R, T>(
   subStateSelector: ISubStateSelector<S, INormalizedCollectionState>,
   schema: Schema,
   entityConstructor: Constructor<T>
-) {
+): INormalizedCollectionSelector<S, R, T> {
   const rawSelector = rawCollectionSelectorFactory<S, R>(subStateSelector, schema);
   return {
     subState: subStateSelector,
