@@ -1,4 +1,4 @@
-import { ApiGetRequest, generateAsyncActionNames } from '@dcs/ngx-tools';
+import { ApiGetRequest } from '@dcs/ngx-tools';
 import { usersListManager } from './users-list.mananger';
 
 export class FetchUsersList extends ApiGetRequest {

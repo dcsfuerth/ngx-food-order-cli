@@ -1,13 +1,7 @@
+import { ApiDeleteRequest, ApiGetRequest, ApiPostRequest, ApiPutRequest } from '@dcs/ngx-tools';
 import { Action } from '@ngrx/store';
 import { currentUserManager } from './current-user.manager';
 import { User } from '../models/user.class';
-import {
-  ApiGetRequest,
-  generateAsyncActionNames,
-  ApiDeleteRequest,
-  ApiPostRequest,
-  ApiPutRequest,
-} from '@dcs/ngx-tools';
 
 export class FetchCurrentUser extends ApiGetRequest {
   constructor(id: string) {

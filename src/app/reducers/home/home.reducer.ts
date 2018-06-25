@@ -1,4 +1,3 @@
-import { Action } from '@ngrx/store';
 import { HomeActions, HomeActionTypes } from './home.actions';
 
 export interface State {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { ofType } from '@ngrx/effects';
 import { delay, mapTo } from 'rxjs/operators';
-import { GreetUniverse, HomeActions, HomeActionTypes } from './home.actions';
+import { GreetUniverse, HomeActionTypes } from './home.actions';
 
 @Injectable()
 export class HomeEffects {

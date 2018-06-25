@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { ProductEditPageComponent } from './product-edit/product-edit-page.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductNewPageComponent } from './product-new/product-new-page.compponent';

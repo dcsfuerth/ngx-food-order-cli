@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <h2>Randon Chuck Norris Jokes</h2>
+    <ul class="list-group">
+      <li *ngFor="let joke of jokes;" class="list-group-item">
+        <p [innerHTML]="joke.joke"></p>
+        <small>{{ joke.categories }}</small>
+      </li>
+    </ul>
+
+    <dcs-loading-indicator [loading]="loading"></dcs-loading-indicator>
+  </div>
+</div>

@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { AppEffects } from './app.effects';
 import { ComponentsModule } from './components/components.module';
 import { CoreModule } from './core/core.module';
-import { metaReducers, reducers } from './reducers';
+import { metaReducers } from './reducers';
 import * as fromRoot from './reducers';
 import { AuthEffects } from './reducers/auth/auth.effects';
 import { AuthGuard } from './reducers/auth/auth.guard';

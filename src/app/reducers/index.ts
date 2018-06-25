@@ -1,7 +1,9 @@
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
+import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import * as fromAuth from './auth/auth.reducer';
 import * as fromHome from './home/home.reducer';
+import { IJokesState, jokesManager } from './jokes/jokes.manager';
 import * as fromOrder from './order/order.reducer';
 import * as fromProducts from './products/products.reducer';
 import * as fromUsers from './users/users.reducer';
@@ -15,15 +17,6 @@ import {
   immutableDevMetaReducer,
 } from '@dcs/ngx-tools';
 
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer,
-  Action,
-} from '@ngrx/store';
-
 export interface State {
   router: RouterReducerState;
   apiError: IApiErrorState;
@@ -32,6 +25,7 @@ export interface State {
   products: fromProducts.State;
   users: fromUsers.State;
   order: fromOrder.State;
+  jokes: IJokesState;
 }
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -46,6 +40,7 @@ export const reducers: ActionReducerMap<State> = {
   products: fromProducts.reducer,
   users: fromUsers.reducer,
   order: fromOrder.reducer,
+  jokes: jokesManager.reducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

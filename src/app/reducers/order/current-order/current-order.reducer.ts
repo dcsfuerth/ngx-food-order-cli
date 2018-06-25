@@ -4,7 +4,6 @@ import { IUser } from './../../users/models/user.class';
 import { IOrder } from './../models/order.class';
 import { fetchActions, updateActions } from './current-order.actions';
 import {
-  generateNormalizedState,
   INormalizedEntityState,
   asyncFetchReducerFactory,
   asyncSaveEntityReducerFactory,

@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Action } from '@ngrx/store';
-import { ApiError, ApiRequestActionTypes, ApiRequestErrorActions } from './api-request.actions';
+import { ApiRequestActionTypes, ApiRequestErrorActions } from './api-request.actions';
 
 export interface IApiErrorItem {
   id: string | null;

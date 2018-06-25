@@ -1,8 +1,7 @@
 import { OnDestroy } from '@angular/core';
-import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
-import { take, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 export abstract class ContainerComponent implements OnDestroy {
   protected onDestroy$ = new Subject();

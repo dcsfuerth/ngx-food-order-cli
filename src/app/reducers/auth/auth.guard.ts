@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { filter, flatMap, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { State as AuthState } from './auth.reducer';
 import { subStateSelector } from './auth.selectors';
 

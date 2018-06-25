@@ -8,7 +8,6 @@ import {
   deleteActions,
 } from '../current-order/current-order.actions';
 import {
-  generateNormalizedState,
   INormalizedCollectionState,
   normalizedCollectionReducerFactory,
   IAction,

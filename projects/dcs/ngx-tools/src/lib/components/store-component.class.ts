@@ -2,7 +2,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Action } from '@ngrx/store';
 import { Observable, OperatorFunction } from 'rxjs';
-import { take, takeUntil } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { ContainerComponent } from './container-component.class';
 import { ISelector } from '../store/selectors/normalized-entity.selectors';
 

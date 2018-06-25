@@ -1,17 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ApiGetRequest, ApiRequest } from '@dcs/ngx-tools';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
-import { schema } from 'normalizr';
 import { State } from '../reducers';
 import { Greet, GreetWorld } from '../reducers/home/home.actions';
 import { greetingSelector } from '../reducers/home/home.selectors';
-import { Product } from '../reducers/products/models/product.class';
-import { FetchProductsList } from '../reducers/products/products-list/products-list.actions';
-import { productsListSelectors } from '../reducers/products/products-list/products-list.selectors';
-
-const userSchema = new schema.Entity('users');
-const usersSchema = new schema.Array(userSchema);
 
 @Component({
   selector: 'dcs-home-page',

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from './../../reducers/products/models/product.class';
 
@@ -26,7 +26,7 @@ export class ProductFormComponent implements OnChanges {
     });
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges() {
     this.form.setValue(this.product.toObject());
   }
 

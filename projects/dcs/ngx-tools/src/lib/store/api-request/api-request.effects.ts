@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { Inject } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { normalize } from 'normalizr';
 import { CurriedFunction2, curry } from 'ramda';
-import { concat, from, NEVER, Observable, of } from 'rxjs';
-import { catchError, map, mapTo, mergeMap, takeUntil } from 'rxjs/operators';
+import { concat, NEVER, of } from 'rxjs';
+import { catchError, map, mergeMap, takeUntil } from 'rxjs/operators';
 import { ApiError, ApiRequestActionTypes } from './api-request.actions';
 import { IApiAction, IApiActionHandlers } from './interfaces';
 import { IEnvironment } from '../../interfaces';

@@ -1,16 +1,16 @@
 import { ActionReducer } from '@ngrx/store';
 import { Schema } from 'normalizr';
-import { normalizedCollectionReducerFactory } from '../reducers/normalized-collection.reducers';
+import { asyncFetchReducerFactory } from '../reducers/normalized-collection.reducers';
 import { INormalizedCollectionState } from '../selectors/interfaces';
 import { Constructor, ISubStateSelector } from '../selectors/normalized-entity.selectors';
-import { generateAsyncActionNames, ICrudActionNames } from '../utils/actions';
+import { generateAsyncActionNames, IAsyncActionNames } from '../utils/actions';
 import {
   INormalizedCollectionSelector,
   normalizedCollectionSelectorFactory,
 } from '../selectors/normalized-collection.selectors';
 
-export interface ICrudCollectionManager<S, R, T> {
-  actions: ICrudActionNames;
+export interface IReadOnlyCollectionManager<S, R, T> {
+  actions: { fetch: IAsyncActionNames };
   initialState: S;
   reducer: ActionReducer<S>;
   selectors: INormalizedCollectionSelector<S, R, T>;
@@ -18,19 +18,15 @@ export interface ICrudCollectionManager<S, R, T> {
   entityConstructor: Constructor<T>;
 }
 
-export function crudCollectionManagerFactory<S extends INormalizedCollectionState, R, T>(
+export function readOnlyCollectionManagerFactory<S extends INormalizedCollectionState, R, T>(
   baseName: string,
-  key: string,
   initialState: S,
-  entityActions: ICrudActionNames,
   subStateSelector: ISubStateSelector<any, S>,
   schema: Schema,
   entityConstructor: Constructor<T>
-): ICrudCollectionManager<S, R, T> {
-  const fetchActions = generateAsyncActionNames(`[${baseName}] Fetch`);
+): IReadOnlyCollectionManager<S, R, T> {
   const actions = {
-    ...entityActions,
-    fetch: fetchActions,
+    fetch: generateAsyncActionNames(`[${baseName}] Fetch`),
   };
 
   const selectors = normalizedCollectionSelectorFactory<S, R, T>(
@@ -38,14 +34,7 @@ export function crudCollectionManagerFactory<S extends INormalizedCollectionStat
     schema,
     entityConstructor
   );
-  const reducer = normalizedCollectionReducerFactory(
-    key,
-    initialState,
-    fetchActions,
-    entityActions.create,
-    entityActions.update,
-    entityActions.delete
-  );
+  const reducer = asyncFetchReducerFactory(initialState, actions.fetch);
 
   return { actions, entityConstructor, initialState, reducer, selectors, schema };
 }

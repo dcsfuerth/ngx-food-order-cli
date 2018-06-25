@@ -4,7 +4,6 @@ import { currentUserManager } from '../current-user/current-user.manager';
 import { IUser, User } from '../models/user.class';
 import {
   crudCollectionManagerFactory,
-  generateNormalizedState,
   INormalizedCollectionState,
   generateNormalizedCollectionState,
 } from '@dcs/ngx-tools';
