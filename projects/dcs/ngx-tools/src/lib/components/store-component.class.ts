@@ -27,7 +27,7 @@ export abstract class StoreComponent extends ContainerComponent {
     return this.store.select(selector);
   }
 
-  public substribeToState<R>(
+  public subscribeToState<R>(
     selector: (state: any) => R,
     cb: (data: R) => void,
     notifyChange: boolean = true,

@@ -19,7 +19,7 @@ export class HomePageComponent extends StoreComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.substribeToState(greetingSelector, greeting => {
+    this.subscribeToState(greetingSelector, greeting => {
       this.greeting = greeting;
     });
 
