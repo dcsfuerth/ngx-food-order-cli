@@ -1,13 +1,15 @@
-<a name="3.5.0"></a>
+<a name="3.5.1"></a>
 
-# [3.5.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.4.0...v3.5.0) (2018-06-25)
+## [3.5.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.4.0...v3.5.1) (2018-06-27)
 
 ### Bug Fixes
 
 - **ngx-tools:** wrong import ([8c864af](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/8c864af))
+- **store:** fixed typo in method name ([4aa6ece](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/4aa6ece))
 
 ### Features
 
+- **packages:** package updates ([e7f1b07](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/e7f1b07))
 - **reducers:** added readonly managers including example usage ([5ca814f](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/5ca814f))
 - **schematics:** added dcs schematics to project ([27767e5](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/27767e5))
 
