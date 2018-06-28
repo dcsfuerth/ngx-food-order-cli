@@ -86,7 +86,7 @@ export function asyncFetchReducerFactory<S extends INormalizedState>(
   actionHandlers: IAsyncActionNames
 ) {
   return curry(
-    (state: S, action: IAction): S => {
+    (state: S = initialState, action: IAction): S => {
       switch (action.type) {
         case actionHandlers.start:
           return asyncFetchStartReducer(initialState);
