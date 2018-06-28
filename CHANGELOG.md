@@ -1,3 +1,15 @@
+<a name="3.5.2"></a>
+
+## [3.5.2](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.5.1...v3.5.2) (2018-06-28)
+
+### Bug Fixes
+
+- **reducers:** forgot initlaState as default param ([60a4217](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/60a4217))
+
+### Features
+
+- **packages:** package updates ([6b55948](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/6b55948))
+
 <a name="3.5.1"></a>
 
 ## [3.5.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.4.0...v3.5.1) (2018-06-27)
