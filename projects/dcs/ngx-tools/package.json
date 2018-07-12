@@ -2,8 +2,8 @@
   "name": "@dcs/ngx-tools",
   "version": "3.5.2",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0 || ^6.1.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0  || ^6.1.0",
     "fast-json-stable-stringify": "^2.0.0",
     "md5": "^2.2.1",
     "ngrx-store-logger": "^0.2.2",

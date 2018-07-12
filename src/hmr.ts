@@ -15,17 +15,17 @@ export const hmrBootstrap = (module: any, bootstrap: () => Promise<NgModuleRef<a
       ngModule = mod;
 
       if (module.hot.data) {
-        store = ngModule.injector.get(Store);
+        store = ngModule.injector.get<Store<any>>(Store);
         store.dispatch(new SetRootState(module.hot.data.state));
       }
     })
     .catch(err => console.log(err));
 
-  module.hot.dispose(data => {
-    const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
+  module.hot.dispose((data: any) => {
+    const appRef: ApplicationRef = ngModule.injector.get<ApplicationRef>(ApplicationRef);
     const elements = appRef.components.map(c => c.location.nativeElement);
     const makeVisible = createNewHosts(elements);
-    store = ngModule.injector.get(Store);
+    store = ngModule.injector.get<Store<any>>(Store);
 
     store.pipe(take(1)).subscribe(state => {
       data.state = state;

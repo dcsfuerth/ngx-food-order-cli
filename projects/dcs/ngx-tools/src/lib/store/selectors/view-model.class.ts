@@ -2,10 +2,7 @@ import { keys } from 'ramda';
 import { Constructor } from './normalized-entity.selectors';
 import { getHash } from '../utils/hash';
 
-export function generateGetter<T extends object, K extends keyof T>(
-  instance: ViewModel<T>,
-  key: K
-) {
+export function generateGetter<T extends object>(instance: ViewModel<T>, key: string) {
   if (Object.getOwnPropertyDescriptor(Object.getPrototypeOf(instance), key) === undefined) {
     Object.defineProperty(instance, key, {
       get() {
@@ -35,7 +32,7 @@ export abstract class ViewModel<T extends object> {
   }
 
   constructor(protected props: Partial<T> = {}) {
-    keys(props).forEach(key => {
+    keys(props).forEach((key: any) => {
       generateGetter(this, key);
     });
     this.init();
@@ -45,7 +42,7 @@ export abstract class ViewModel<T extends object> {
   // tslint:disable-next-line:no-empty
   public init(): void {}
 
-  public getProp(key: keyof T) {
+  public getProp(key: string) {
     return (<any>this.props)[key];
   }
 
@@ -62,7 +59,7 @@ export abstract class ViewModel<T extends object> {
     return { ...(this.props as object) } as T;
   }
 
-  protected getInstance(key: keyof T, konstructor: Constructor<any>, collection = false) {
+  protected getInstance(key: string, konstructor: Constructor<any>, collection = false) {
     if (!this.instanceCache[key]) {
       if (collection) {
         this.instanceCache[key] = this.getProp(key).map((item: any) => new konstructor(item));

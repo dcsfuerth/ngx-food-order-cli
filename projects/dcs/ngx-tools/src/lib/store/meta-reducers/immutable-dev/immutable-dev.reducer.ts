@@ -1,5 +1,5 @@
 import { ActionReducer } from '@ngrx/store';
-import stringify from 'fast-json-stable-stringify';
+import stringify from 'json-stable-stringify';
 
 export function immutableDevMetaReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return function(state: any, action: any) {

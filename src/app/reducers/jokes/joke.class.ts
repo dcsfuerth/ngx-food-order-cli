@@ -7,7 +7,7 @@ export interface IJoke {
 }
 
 export class Joke extends ViewModel<IJoke> {
-  protected static readonly defaults = {
+  protected static readonly defaults: IJoke = {
     id: '',
     joke: '',
     categories: [],

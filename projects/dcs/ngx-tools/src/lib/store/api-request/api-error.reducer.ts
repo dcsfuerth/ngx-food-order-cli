@@ -24,7 +24,7 @@ export function apiError(
 ): IApiErrorState {
   switch (action.type) {
     case ApiRequestActionTypes.ApiError:
-      const item = { id: null, ...action.payload };
+      const item = { id: '', ...action.payload };
       return { latest: item, errors: [...state.errors, item] };
 
     case ApiRequestActionTypes.ApiErrorsReset:

@@ -32,7 +32,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
   return localStorageSync({ keys: ['auth'], rehydrate: true })(reducer);
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<State, any> = {
   router: routerReducer,
   apiError,
   auth: fromAuth.reducer,

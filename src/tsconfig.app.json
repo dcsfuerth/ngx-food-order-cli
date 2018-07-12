@@ -5,5 +5,12 @@
     "module": "esnext",
     "types": ["node"]
   },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": false,
+    "strictInjectionParameters": true,
+    "enableIvy": false,
+    "disableTypeScriptVersionCheck": true
+  },
   "exclude": ["src/test.ts", "**/*.spec.ts"]
 }

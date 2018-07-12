@@ -156,5 +156,10 @@
       }
     }
   },
-  "defaultProject": "ngx-food-order-cli"
+  "defaultProject": "ngx-food-order-cli",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  }
 }
