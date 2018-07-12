@@ -1,3 +1,16 @@
+<a name="3.6.0"></a>
+
+# [3.6.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.5.2...v3.6.0) (2018-07-12)
+
+### Bug Fixes
+
+- **ngx-tools:** make lib compile agains ts 2.9 ([51eff1f](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/51eff1f))
+
+### Features
+
+- **pacages:** package updates ([508ab14](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/508ab14))
+- **typescript:** update typescript to 2.9 ([4ace8b1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/4ace8b1))
+
 <a name="3.5.2"></a>
 
 ## [3.5.2](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.5.1...v3.5.2) (2018-06-28)
