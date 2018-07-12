@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0 || ^6.1.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0  || ^6.1.0",
-    "fast-json-stable-stringify": "^2.0.0",
+    "json-stable-stringify": "^1.0.1",
     "md5": "^2.2.1",
     "ngrx-store-logger": "^0.2.2",
     "normalizr": "^3.2.4",
