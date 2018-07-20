@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jokes Manager initialState has the correct format 1`] = `
+Object {
+  "entities": Object {
+    "jokes": Object {},
+  },
+  "error": null,
+  "lastState": null,
+  "loaded": false,
+  "loading": false,
+  "result": Array [],
+  "updatedAt": null,
+  "updating": false,
+}
+`;
+
+exports[`Jokes Manager reducer returns the initialState 1`] = `
+Object {
+  "entities": Object {
+    "jokes": Object {},
+  },
+  "error": null,
+  "lastState": null,
+  "loaded": false,
+  "loading": false,
+  "result": Array [],
+  "updatedAt": null,
+  "updating": false,
+}
+`;
+
+exports[`Jokes Manager reducer sets loading to true on start action 1`] = `
+Object {
+  "entities": Object {
+    "jokes": Object {},
+  },
+  "error": null,
+  "lastState": null,
+  "loaded": false,
+  "loading": true,
+  "result": Array [],
+  "updatedAt": null,
+  "updating": false,
+}
+`;
+
+exports[`Jokes Manager selectors collection returns a collection of Joke instances 1`] = `
+Array [
+  "{\\"id\\":\\"42\\",\\"joke\\":\\"Knock, knock!\\",\\"categories\\":[\\"bad jokes\\"]}",
+]
+`;

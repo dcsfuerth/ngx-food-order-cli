@@ -20,8 +20,8 @@ export const currentOrderStateSelector = createSelector(
   getJoinedOrderState
 );
 
-export const currentOrderSelectors = normalizedEntitySelectorFactory<State, IOrder, Order>(
-  currentOrderStateSelector,
-  orderSchema,
+export const currentOrderSelectors = normalizedEntitySelectorFactory<
+  ICurrentOrderState,
+  IOrder,
   Order
-);
+>(currentOrderStateSelector, orderSchema, Order);

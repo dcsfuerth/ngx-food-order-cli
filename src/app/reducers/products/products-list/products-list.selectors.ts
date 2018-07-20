@@ -7,8 +7,8 @@ import { IProduct, Product } from '../models/product.class';
 export const productsListStateSelector = (state: State): IProductsListState =>
   state.products.productsList;
 
-export const productsListSelectors = normalizedCollectionSelectorFactory<State, IProduct, Product>(
-  productsListStateSelector,
-  productsSchema,
+export const productsListSelectors = normalizedCollectionSelectorFactory<
+  IProductsListState,
+  IProduct,
   Product
-);
+>(productsListStateSelector, productsSchema, Product);

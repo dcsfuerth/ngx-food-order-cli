@@ -2,6 +2,7 @@ import { ActionReducer } from '@ngrx/store';
 import { Schema } from 'normalizr';
 import { normalizedEntityReducerFactory } from '../reducers/normalized-entity.reducers';
 import { INormalizedEntityState } from '../selectors/interfaces';
+import { ViewModel } from '../selectors/view-model.class';
 import { generateCrudActionNames, ICrudActionNames } from '../utils/actions';
 import {
   ISubStateSelector,
@@ -14,12 +15,16 @@ export interface ICrudEntityManager<S, R, T> {
   actions: ICrudActionNames;
   initialState: S;
   reducer: ActionReducer<S>;
-  selectors: INormalizedEntitySelector<S, R, T>;
+  selectors: INormalizedEntitySelector<R, T>;
   schema: Schema;
   entityConstructor: Constructor<T>;
 }
 
-export function crudEntityManagerFactory<S extends INormalizedEntityState, R, T>(
+export function crudEntityManagerFactory<
+  S extends INormalizedEntityState,
+  R extends object,
+  T extends ViewModel<R>
+>(
   baseName: string,
   initialState: S,
   subStateSelector: ISubStateSelector<any, S>,

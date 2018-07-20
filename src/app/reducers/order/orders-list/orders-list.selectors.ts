@@ -36,8 +36,8 @@ export const ordersListStateSelector = createSelector(
   getJoinedOrderState
 );
 
-export const ordersListSelectors = normalizedCollectionSelectorFactory<State, IOrder, Order>(
-  ordersListStateSelector,
-  ordersSchema,
+export const ordersListSelectors = normalizedCollectionSelectorFactory<
+  IOrdersListState,
+  IOrder,
   Order
-);
+>(ordersListStateSelector, ordersSchema, Order);

@@ -1,6 +1,7 @@
 import { createSelector, MemoizedSelector } from '@ngrx/store';
 import { denormalize, Schema } from 'normalizr';
 import { INormalizedEntityState, INormalizedState } from './interfaces';
+import { ViewModel } from './view-model.class';
 
 export type Constructor<T = {}> = new (...args: any[]) => T;
 
@@ -10,15 +11,15 @@ export type ISubStateSelector<S, E extends INormalizedState = INormalizedEntityS
 
 export type ISelector<S, T> = (state: S) => T;
 
-export interface INormalizedEntitySelector<S, R, T> {
-  subState: ISubStateSelector<S>;
-  loading: ISelector<S, boolean>;
-  loaded: ISelector<S, boolean>;
-  updating: ISelector<S, boolean>;
-  error: ISelector<S, any>;
-  updatedAt: ISelector<S, Date>;
-  rawEntity: ISelector<S, R>;
-  entity: ISelector<S, T>;
+export interface INormalizedEntitySelector<R, T> {
+  subState: ISubStateSelector<any>;
+  loading: ISelector<any, boolean>;
+  loaded: ISelector<any, boolean>;
+  updating: ISelector<any, boolean>;
+  error: ISelector<any, any>;
+  updatedAt: ISelector<any, Date>;
+  rawEntity: ISelector<any, R>;
+  entity: ISelector<any, T>;
 }
 
 export function subStateKeySelectorFactory<
@@ -45,20 +46,24 @@ export function entitySelectorFactory<S, T>(
   return createSelector([rawSelector], rawEntity => new entityConstructor(rawEntity) as T);
 }
 
-export function normalizedEntitySelectorFactory<S, R, T>(
-  subStateSelector: ISubStateSelector<S>,
+export function normalizedEntitySelectorFactory<
+  S extends INormalizedEntityState,
+  R extends object,
+  T extends ViewModel<R>
+>(
+  subStateSelector: ISubStateSelector<any, S>,
   schema: Schema,
   entityConstructor: Constructor<T>
-): INormalizedEntitySelector<S, R, T> {
+): INormalizedEntitySelector<R, T> {
   const rawSelector = rawEntitySelectorFactory<S, R>(subStateSelector, schema);
   return {
     subState: subStateSelector,
-    loading: subStateKeySelectorFactory<S, boolean>(subStateSelector, 'loading'),
-    loaded: subStateKeySelectorFactory<S, boolean>(subStateSelector, 'loaded'),
-    updating: subStateKeySelectorFactory<S, boolean>(subStateSelector, 'updating'),
-    error: subStateKeySelectorFactory<S, any>(subStateSelector, 'error'),
-    updatedAt: subStateKeySelectorFactory<S, Date>(subStateSelector, 'updatedAt'),
+    loading: subStateKeySelectorFactory<any, boolean>(subStateSelector, 'loading'),
+    loaded: subStateKeySelectorFactory<any, boolean>(subStateSelector, 'loaded'),
+    updating: subStateKeySelectorFactory<any, boolean>(subStateSelector, 'updating'),
+    error: subStateKeySelectorFactory<any, any>(subStateSelector, 'error'),
+    updatedAt: subStateKeySelectorFactory<any, Date>(subStateSelector, 'updatedAt'),
     rawEntity: rawSelector,
-    entity: entitySelectorFactory<S, T>(rawSelector, entityConstructor),
+    entity: entitySelectorFactory<any, T>(rawSelector, entityConstructor),
   };
 }

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Joke constructor with params uses the given params 1`] = `"{\\"id\\":\\"42\\",\\"joke\\":\\"Knock, knock!\\",\\"categories\\":[\\"nerdy\\"]}"`;
+
+exports[`Joke constructor without params uses the default params 1`] = `"{\\"id\\":\\"\\",\\"joke\\":\\"\\",\\"categories\\":[\\"nerdy\\"]}"`;

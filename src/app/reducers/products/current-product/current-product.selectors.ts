@@ -7,8 +7,8 @@ import { IProduct, Product } from '../models/product.class';
 export const currentProductStateSelector = (state: State): ICurrentProductState =>
   state.products.currentProduct;
 
-export const currentProductSelectors = normalizedEntitySelectorFactory<State, IProduct, Product>(
-  currentProductStateSelector,
-  productSchema,
+export const currentProductSelectors = normalizedEntitySelectorFactory<
+  ICurrentProductState,
+  IProduct,
   Product
-);
+>(currentProductStateSelector, productSchema, Product);

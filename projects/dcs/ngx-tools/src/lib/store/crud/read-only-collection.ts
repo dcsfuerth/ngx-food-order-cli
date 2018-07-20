@@ -3,6 +3,7 @@ import { Schema } from 'normalizr';
 import { asyncFetchReducerFactory } from '../reducers/normalized-collection.reducers';
 import { INormalizedCollectionState } from '../selectors/interfaces';
 import { Constructor, ISubStateSelector } from '../selectors/normalized-entity.selectors';
+import { ViewModel } from '../selectors/view-model.class';
 import { generateAsyncActionNames, IAsyncActionNames } from '../utils/actions';
 import {
   INormalizedCollectionSelector,
@@ -13,12 +14,16 @@ export interface IReadOnlyCollectionManager<S, R, T> {
   actions: { fetch: IAsyncActionNames };
   initialState: S;
   reducer: ActionReducer<S>;
-  selectors: INormalizedCollectionSelector<S, R, T>;
+  selectors: INormalizedCollectionSelector<R, T>;
   schema: Schema;
   entityConstructor: Constructor<T>;
 }
 
-export function readOnlyCollectionManagerFactory<S extends INormalizedCollectionState, R, T>(
+export function readOnlyCollectionManagerFactory<
+  S extends INormalizedCollectionState,
+  R extends object,
+  T extends ViewModel<R>
+>(
   baseName: string,
   initialState: S,
   subStateSelector: ISubStateSelector<any, S>,

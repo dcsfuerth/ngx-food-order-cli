@@ -3,6 +3,7 @@ import { Schema } from 'normalizr';
 import { normalizedCollectionReducerFactory } from '../reducers/normalized-collection.reducers';
 import { INormalizedCollectionState } from '../selectors/interfaces';
 import { Constructor, ISubStateSelector } from '../selectors/normalized-entity.selectors';
+import { ViewModel } from '../selectors/view-model.class';
 import { generateAsyncActionNames, ICrudActionNames } from '../utils/actions';
 import {
   INormalizedCollectionSelector,
@@ -13,12 +14,16 @@ export interface ICrudCollectionManager<S, R, T> {
   actions: ICrudActionNames;
   initialState: S;
   reducer: ActionReducer<S>;
-  selectors: INormalizedCollectionSelector<S, R, T>;
+  selectors: INormalizedCollectionSelector<R, T>;
   schema: Schema;
   entityConstructor: Constructor<T>;
 }
 
-export function crudCollectionManagerFactory<S extends INormalizedCollectionState, R, T>(
+export function crudCollectionManagerFactory<
+  S extends INormalizedCollectionState,
+  R extends object,
+  T extends ViewModel<R>
+>(
   baseName: string,
   key: string,
   initialState: S,

@@ -2,6 +2,7 @@ import { createSelector, MemoizedSelector } from '@ngrx/store';
 import { denormalize, Schema } from 'normalizr';
 import { INormalizedCollectionState } from './interfaces';
 import { ISelector } from './normalized-entity.selectors';
+import { ViewModel } from './view-model.class';
 
 import {
   Constructor,
@@ -9,15 +10,15 @@ import {
   subStateKeySelectorFactory,
 } from './normalized-entity.selectors';
 
-export interface INormalizedCollectionSelector<S, R, T> {
-  subState: ISubStateSelector<S, INormalizedCollectionState>;
-  loading: ISelector<S, boolean>;
-  loaded: ISelector<S, boolean>;
-  updating: ISelector<S, boolean>;
-  error: ISelector<S, any>;
-  updatedAt: ISelector<S, Date>;
-  rawCollection: ISelector<S, R[]>;
-  collection: ISelector<S, T[]>;
+export interface INormalizedCollectionSelector<R, T> {
+  subState: ISubStateSelector<any, INormalizedCollectionState>;
+  loading: ISelector<any, boolean>;
+  loaded: ISelector<any, boolean>;
+  updating: ISelector<any, boolean>;
+  error: ISelector<any, any>;
+  updatedAt: ISelector<any, Date>;
+  rawCollection: ISelector<any, R[]>;
+  collection: ISelector<any, T[]>;
 }
 
 export function rawCollectionSelectorFactory<S, E>(
@@ -39,35 +40,39 @@ export function collectionSelectorFactory<S, T>(
   );
 }
 
-export function normalizedCollectionSelectorFactory<S, R, T>(
-  subStateSelector: ISubStateSelector<S, INormalizedCollectionState>,
+export function normalizedCollectionSelectorFactory<
+  S extends INormalizedCollectionState,
+  R extends object,
+  T extends ViewModel<R>
+>(
+  subStateSelector: ISubStateSelector<any, S>,
   schema: Schema,
   entityConstructor: Constructor<T>
-): INormalizedCollectionSelector<S, R, T> {
+): INormalizedCollectionSelector<R, T> {
   const rawSelector = rawCollectionSelectorFactory<S, R>(subStateSelector, schema);
   return {
     subState: subStateSelector,
-    loading: subStateKeySelectorFactory<S, boolean, INormalizedCollectionState>(
+    loading: subStateKeySelectorFactory<any, boolean, INormalizedCollectionState>(
       subStateSelector,
       'loading'
     ),
-    loaded: subStateKeySelectorFactory<S, boolean, INormalizedCollectionState>(
+    loaded: subStateKeySelectorFactory<any, boolean, INormalizedCollectionState>(
       subStateSelector,
       'loaded'
     ),
-    updating: subStateKeySelectorFactory<S, boolean, INormalizedCollectionState>(
+    updating: subStateKeySelectorFactory<any, boolean, INormalizedCollectionState>(
       subStateSelector,
       'updating'
     ),
-    error: subStateKeySelectorFactory<S, any, INormalizedCollectionState>(
+    error: subStateKeySelectorFactory<any, any, INormalizedCollectionState>(
       subStateSelector,
       'error'
     ),
-    updatedAt: subStateKeySelectorFactory<S, Date, INormalizedCollectionState>(
+    updatedAt: subStateKeySelectorFactory<any, Date, INormalizedCollectionState>(
       subStateSelector,
       'updatedAt'
     ),
     rawCollection: rawSelector,
-    collection: collectionSelectorFactory<S, T>(rawSelector, entityConstructor),
+    collection: collectionSelectorFactory<any, T>(rawSelector, entityConstructor),
   };
 }

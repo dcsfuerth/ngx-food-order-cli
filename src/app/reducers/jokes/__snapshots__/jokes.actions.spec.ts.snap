@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jokes Actions FetchJokes generates the correct API action format 1`] = `
+FetchJokes {
+  "payload": Object {
+    "cancel": undefined,
+    "handlers": "[Jokes] Fetch",
+    "normalizrSchema": ArraySchema {
+      "schema": EntitySchema {
+        "_getId": [Function],
+        "_idAttribute": [Function],
+        "_key": "jokes",
+        "_mergeStrategy": [Function],
+        "_processStrategy": [Function],
+        "schema": Object {},
+      },
+    },
+    "rawDataProcessor": [Function],
+    "request": Object {
+      "method": "GET",
+      "url": "http://api.icndb.com/jokes/random/5",
+    },
+  },
+  "type": "[ApiRequest] Execute API Request",
+}
+`;

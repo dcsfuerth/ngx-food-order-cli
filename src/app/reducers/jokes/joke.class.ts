@@ -10,14 +10,14 @@ export class Joke extends ViewModel<IJoke> {
   protected static readonly defaults: IJoke = {
     id: '',
     joke: '',
-    categories: [],
+    categories: ['nerdy'],
   };
 
   public id: string;
   public joke: string;
   public categories: string[];
 
-  constructor(props: Partial<IJoke>) {
+  constructor(props: Partial<IJoke> = {}) {
     props = { ...Joke.defaults, ...props };
     super(props);
   }
