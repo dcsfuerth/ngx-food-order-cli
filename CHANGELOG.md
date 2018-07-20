@@ -1,3 +1,15 @@
+<a name="3.6.1"></a>
+
+## [3.6.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.6.0...v3.6.1) (2018-07-20)
+
+### Bug Fixes
+
+- **typings:** fixed typings for managers/selectors ([21585b8](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/21585b8))
+
+### Features
+
+- **packages:** package updates ([7cef0c4](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/7cef0c4))
+
 <a name="3.6.0"></a>
 
 # [3.6.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.5.2...v3.6.0) (2018-07-12)
