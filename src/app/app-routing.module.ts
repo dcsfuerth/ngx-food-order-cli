@@ -14,6 +14,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'simple-reducers',
+    loadChildren: './simple-reducers/simple-reducers.module#SimpleReducersModule',
+  },
+
+  {
     path: 'users',
     loadChildren: './users/users.module#UsersModule',
     canActivateChild: [AuthGuard],
