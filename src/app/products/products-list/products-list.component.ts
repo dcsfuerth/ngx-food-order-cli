@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PresentationalComponent } from '@dcs/ngx-tools';
-import { Product } from './../../reducers/products/models/product.class';
+import { Product } from '../../reducers/products/models/product.class';
 
 @Component({
   selector: 'dcs-products-list',

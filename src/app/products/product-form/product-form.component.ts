@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Product } from './../../reducers/products/models/product.class';
+import { Product } from '../../reducers/products/models/product.class';
 
 @Component({
   selector: 'dcs-product-form',

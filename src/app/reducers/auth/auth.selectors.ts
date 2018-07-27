@@ -1,5 +1,5 @@
 import { State } from '..';
-import { IUser } from './../users/models/user.class';
+import { IUser } from '../users/models/user.class';
 import { State as AuthState } from './auth.reducer';
 
 export const subStateSelector = (state: State): AuthState => state.auth;

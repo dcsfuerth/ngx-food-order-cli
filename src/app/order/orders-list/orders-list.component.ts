@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Order } from './../../reducers/order/models/order.class';
+import { Order } from '../../reducers/order/models/order.class';
 
 @Component({
   selector: 'dcs-orders-list',

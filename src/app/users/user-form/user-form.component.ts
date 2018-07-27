@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from './../../reducers/users/models/user.class';
+import { User } from '../../reducers/users/models/user.class';
 
 @Component({
   selector: 'dcs-user-form',

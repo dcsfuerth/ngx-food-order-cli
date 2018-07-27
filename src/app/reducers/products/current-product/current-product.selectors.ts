@@ -1,7 +1,7 @@
 import { normalizedEntitySelectorFactory } from '@dcs/ngx-tools';
 import { ICurrentProductState } from './current-product.reducer';
 import { productSchema } from './current-product.schema';
-import { State } from '../../index';
+import { State } from '../..';
 import { IProduct, Product } from '../models/product.class';
 
 export const currentProductStateSelector = (state: State): ICurrentProductState =>

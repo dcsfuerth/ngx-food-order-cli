@@ -1,6 +1,6 @@
-import { IProduct } from './../../products/models/product.class';
-import { IUser } from './../../users/models/user.class';
-import { IOrder } from './../models/order.class';
+import { IProduct } from '../../products/models/product.class';
+import { IUser } from '../../users/models/user.class';
+import { IOrder } from '../models/order.class';
 import { fetchActions } from './orders-list.actions';
 import {
   createActions,

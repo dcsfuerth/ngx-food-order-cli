@@ -1,7 +1,7 @@
 import { __, compose } from 'ramda';
-import { IProduct } from './../../products/models/product.class';
-import { IUser } from './../../users/models/user.class';
-import { IOrder } from './../models/order.class';
+import { IProduct } from '../../products/models/product.class';
+import { IUser } from '../../users/models/user.class';
+import { IOrder } from '../models/order.class';
 import { fetchActions, updateActions } from './current-order.actions';
 import {
   INormalizedEntityState,

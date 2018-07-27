@@ -1,9 +1,8 @@
-import { ApiRequest, generateAsyncActionNames } from '@dcs/ngx-tools';
-
-export const actions = generateAsyncActionNames('[Simple User] Fetch');
+import { ApiRequest } from '@dcs/ngx-tools';
+import { simpleUserManager } from './simple-user.manager';
 
 export class FetchSimpleUser extends ApiRequest {
   constructor() {
-    super({ url: 'users/2', method: 'GET' }, actions.base);
+    super({ url: 'users/2', method: 'GET' }, simpleUserManager.actions.base);
   }
 }

@@ -1,7 +1,7 @@
 import { normalizedEntitySelectorFactory } from '@dcs/ngx-tools';
 import { createSelector } from '@ngrx/store';
-import { productsListStateSelector } from './../../products/products-list/products-list.selectors';
-import { IOrder, Order } from './../models/order.class';
+import { productsListStateSelector } from '../../products/products-list/products-list.selectors';
+import { IOrder, Order } from '../models/order.class';
 import { ICurrentOrderState } from './current-order.reducer';
 import { orderSchema } from './current-order.schema';
 import { State } from '../..';

@@ -3,7 +3,7 @@ import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { DeleteCurrentUser } from './../../reducers/users/current-user/current-user.actions';
+import { DeleteCurrentUser } from '../../reducers/users/current-user/current-user.actions';
 import { State } from '../../reducers';
 import { User } from '../../reducers/users/models/user.class';
 import { FetchUsersList } from '../../reducers/users/users-list/users-list.actions';

@@ -3,10 +3,10 @@ import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { DeleteCurrentProduct } from './../../reducers/products/current-product/current-product.actions';
-import { Product } from './../../reducers/products/models/product.class';
-import { FetchProductsList } from './../../reducers/products/products-list/products-list.actions';
-import { productsListSelectors } from './../../reducers/products/products-list/products-list.selectors';
+import { DeleteCurrentProduct } from '../../reducers/products/current-product/current-product.actions';
+import { Product } from '../../reducers/products/models/product.class';
+import { FetchProductsList } from '../../reducers/products/products-list/products-list.actions';
+import { productsListSelectors } from '../../reducers/products/products-list/products-list.selectors';
 import { State } from '../../reducers';
 
 @Component({

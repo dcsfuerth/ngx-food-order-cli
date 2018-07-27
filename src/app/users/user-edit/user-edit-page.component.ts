@@ -3,12 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { User } from './../../reducers/users/models/user.class';
+import { User } from '../../reducers/users/models/user.class';
 import { State } from '../../reducers';
 import {
   FetchCurrentUser,
   UpdateCurrentUser,
-} from './../../reducers/users/current-user/current-user.actions';
+} from '../../reducers/users/current-user/current-user.actions';
 import { currentUserManager } from '../../reducers/users/current-user/current-user.manager';
 
 @Component({

@@ -7,6 +7,7 @@ import { IJokesState, jokesManager } from './jokes/jokes.manager';
 import * as fromOrder from './order/order.reducer';
 import * as fromProducts from './products/products.reducer';
 import { ISimpleUserState, reducer as simpleUserReducer } from './simple-user/simple-user.reducer';
+import { ISimpleUsersState, simpleUsersManager } from './simple-users/simple-users.manager';
 import * as fromUsers from './users/users.reducer';
 import { environment } from '../../environments/environment';
 import {
@@ -28,6 +29,7 @@ export interface State {
   order: fromOrder.State;
   jokes: IJokesState;
   simpleUser: ISimpleUserState;
+  simpleUsers: ISimpleUsersState;
 }
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -44,6 +46,7 @@ export const reducers: ActionReducerMap<State, any> = {
   order: fromOrder.reducer,
   jokes: jokesManager.reducer,
   simpleUser: simpleUserReducer,
+  simpleUsers: simpleUsersManager.reducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

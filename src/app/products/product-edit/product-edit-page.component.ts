@@ -3,13 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { currentProductSelectors } from './../../reducers/products/current-product/current-product.selectors';
-import { Product } from './../../reducers/products/models/product.class';
+import { currentProductSelectors } from '../../reducers/products/current-product/current-product.selectors';
+import { Product } from '../../reducers/products/models/product.class';
 import { State } from '../../reducers';
 import {
   FetchCurrentProduct,
   UpdateCurrentProduct,
-} from './../../reducers/products/current-product/current-product.actions';
+} from '../../reducers/products/current-product/current-product.actions';
 
 @Component({
   selector: 'dcs-edit-product-page',

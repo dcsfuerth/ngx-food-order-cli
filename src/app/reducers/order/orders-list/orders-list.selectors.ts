@@ -1,8 +1,8 @@
 import { normalizedCollectionSelectorFactory } from '@dcs/ngx-tools';
 import { createSelector } from '@ngrx/store';
-import { IProductsListState } from './../../products/products-list/products-list.reducer';
-import { productsListStateSelector } from './../../products/products-list/products-list.selectors';
-import { IOrder, Order } from './../models/order.class';
+import { IProductsListState } from '../../products/products-list/products-list.reducer';
+import { productsListStateSelector } from '../../products/products-list/products-list.selectors';
+import { IOrder, Order } from '../models/order.class';
 import { ordersSchema } from './orders-list.actions';
 import { IOrdersListState } from './orders-list.reducer';
 import { State } from '../..';

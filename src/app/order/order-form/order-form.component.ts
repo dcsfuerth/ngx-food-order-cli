@@ -2,10 +2,10 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { PresentationalComponent } from '@dcs/ngx-tools';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Item } from './../../reducers/order/models/item.class';
-import { Order } from './../../reducers/order/models/order.class';
-import { Product } from './../../reducers/products/models/product.class';
-import { User } from './../../reducers/users/models/user.class';
+import { Item } from '../../reducers/order/models/item.class';
+import { Order } from '../../reducers/order/models/order.class';
+import { Product } from '../../reducers/products/models/product.class';
+import { User } from '../../reducers/users/models/user.class';
 import {
   Component,
   Input,

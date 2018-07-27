@@ -1,6 +1,6 @@
 import { ViewModel } from '@dcs/ngx-tools';
-import { IProduct, Product } from './../../products/models/product.class';
-import { IUser, User } from './../../users/models/user.class';
+import { IProduct, Product } from '../../products/models/product.class';
+import { IUser, User } from '../../users/models/user.class';
 
 export interface IItem {
   productId: string;

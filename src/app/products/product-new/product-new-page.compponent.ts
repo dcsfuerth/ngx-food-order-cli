@@ -2,13 +2,13 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { currentProductSelectors } from './../../reducers/products/current-product/current-product.selectors';
-import { Product } from './../../reducers/products/models/product.class';
+import { currentProductSelectors } from '../../reducers/products/current-product/current-product.selectors';
+import { Product } from '../../reducers/products/models/product.class';
 import { State } from '../../reducers';
 import {
   CreateCurrentProduct,
   ResetCurrentProduct,
-} from './../../reducers/products/current-product/current-product.actions';
+} from '../../reducers/products/current-product/current-product.actions';
 
 @Component({
   selector: 'dcs-product-new-page',

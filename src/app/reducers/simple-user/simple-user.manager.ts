@@ -1,10 +1,11 @@
 import { State } from '..';
-import { simpleStateSelectorsFactory } from '@dcs/ngx-tools';
+import { createSimpleEntityManager } from '@dcs/ngx-tools';
 import { IUser, User } from './simple-user.class';
 
 export const simpleUserStateSelector = (state: State) => state.simpleUser;
 
-export const simpleUserSelectors = simpleStateSelectorsFactory<State, IUser, User>(
+export const simpleUserManager = createSimpleEntityManager<State, IUser, User>(
+  '[Simple User] Fetch',
   simpleUserStateSelector,
   User
 );
