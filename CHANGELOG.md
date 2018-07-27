@@ -1,3 +1,13 @@
+<a name="3.7.0"></a>
+
+# [3.7.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.6.1...v3.7.0) (2018-07-27)
+
+### Features
+
+- **packages:** update to angular 6.1, cleanups ([18e2265](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/18e2265))
+- **simple-reducers:** added first implementation of simple reducers ([a354549](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/a354549))
+- **simplereducers:** added manager factories for simple reducers ([25fa22f](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/25fa22f))
+
 <a name="3.6.1"></a>
 
 ## [3.6.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.6.0...v3.6.1) (2018-07-20)
