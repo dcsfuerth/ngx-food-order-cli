@@ -86,7 +86,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "tsConfig": ["src/tsconfig.app.json"],
             "exclude": ["**/node_modules/**"]
           }
         }
@@ -146,10 +146,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "projects/dcs/ngx-tools/tsconfig.lib.json",
-              "projects/dcs/ngx-tools/tsconfig.spec.json"
-            ],
+            "tsConfig": ["projects/dcs/ngx-tools/tsconfig.lib.json"],
             "exclude": ["**/node_modules/**"]
           }
         }
