@@ -155,7 +155,7 @@ export function normalizedCollectionReducerFactory<S extends INormalizedCollecti
 
     switch (action.type) {
       case updateActions.success:
-        return mergeDeepRight(state, { entities: action.payload.entities }) as S;
+        return mergeDeepRight(state, { entities: action.payload.entities }) as any;
 
       case createActions.success:
         return addEntityToCollection(key, state, action) as S;

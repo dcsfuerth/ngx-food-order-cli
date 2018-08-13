@@ -3,9 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { State } from '../../reducers';
 import { currentProductSelectors } from '../../reducers/products/current-product/current-product.selectors';
 import { Product } from '../../reducers/products/models/product.class';
-import { State } from '../../reducers';
 import {
   FetchCurrentProduct,
   UpdateCurrentProduct,
@@ -38,10 +38,10 @@ export class ProductEditPageComponent extends StoreComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.product$ = this.store.select(currentProductSelectors.entity);
-    this.updating$ = this.store.select(currentProductSelectors.updating);
-    this.loading$ = this.store.select(currentProductSelectors.loading);
-    this.error$ = this.store.select(currentProductSelectors.error);
+    this.product$ = this.select(currentProductSelectors.entity);
+    this.updating$ = this.select(currentProductSelectors.updating);
+    this.loading$ = this.select(currentProductSelectors.loading);
+    this.error$ = this.select(currentProductSelectors.error);
 
     this.subscribeToObservable(this.route.params, params => {
       this.store.dispatch(new FetchCurrentProduct(params.id));

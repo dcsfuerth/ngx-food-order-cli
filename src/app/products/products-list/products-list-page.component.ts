@@ -3,11 +3,11 @@ import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { State } from '../../reducers';
 import { DeleteCurrentProduct } from '../../reducers/products/current-product/current-product.actions';
 import { Product } from '../../reducers/products/models/product.class';
 import { FetchProductsList } from '../../reducers/products/products-list/products-list.actions';
 import { productsListSelectors } from '../../reducers/products/products-list/products-list.selectors';
-import { State } from '../../reducers';
 
 @Component({
   selector: 'dcs-products-list-page',
@@ -33,11 +33,11 @@ export class ProductsListPageComponent extends StoreComponent implements OnInit 
   }
 
   public ngOnInit(): void {
-    this.products$ = this.store.select(productsListSelectors.collection);
-    this.loading$ = this.store.select(productsListSelectors.loading);
-    this.loaded$ = this.store.select(productsListSelectors.loaded);
-    this.updating$ = this.store.select(productsListSelectors.updating);
-    this.error$ = this.store.select(productsListSelectors.error);
+    this.products$ = this.select(productsListSelectors.collection);
+    this.loading$ = this.select(productsListSelectors.loading);
+    this.loaded$ = this.select(productsListSelectors.loaded);
+    this.updating$ = this.select(productsListSelectors.updating);
+    this.error$ = this.select(productsListSelectors.error);
 
     this.subscribeToObservable(this.loaded$.pipe(take(1)), loaded => {
       if (!loaded) {

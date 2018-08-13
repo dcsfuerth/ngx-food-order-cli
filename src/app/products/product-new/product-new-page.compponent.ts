@@ -2,9 +2,9 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { StoreComponent } from '@dcs/ngx-tools';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { State } from '../../reducers';
 import { currentProductSelectors } from '../../reducers/products/current-product/current-product.selectors';
 import { Product } from '../../reducers/products/models/product.class';
-import { State } from '../../reducers';
 import {
   CreateCurrentProduct,
   ResetCurrentProduct,
@@ -32,9 +32,9 @@ export class ProductNewPageComponent extends StoreComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.product$ = this.store.select(currentProductSelectors.entity);
-    this.updating$ = this.store.select(currentProductSelectors.updating);
-    this.error$ = this.store.select(currentProductSelectors.error);
+    this.product$ = this.select(currentProductSelectors.entity);
+    this.updating$ = this.select(currentProductSelectors.updating);
+    this.error$ = this.select(currentProductSelectors.error);
   }
 
   public update(product: Product) {

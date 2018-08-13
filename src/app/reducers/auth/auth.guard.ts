@@ -1,7 +1,7 @@
 import { State } from '..';
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { State as AuthState } from './auth.reducer';
@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   private authState$: Observable<AuthState>;
 
   constructor(private store: Store<State>, private router: Router) {
-    this.authState$ = this.store.select(subStateSelector);
+    this.authState$ = this.store.pipe(select(subStateSelector));
   }
 
   public canActivate(): Observable<boolean> {

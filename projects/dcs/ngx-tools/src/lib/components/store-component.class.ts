@@ -1,6 +1,5 @@
 import { ChangeDetectorRef } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Action } from '@ngrx/store';
+import { Action, select, Store } from '@ngrx/store';
 import { Observable, OperatorFunction } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { ContainerComponent } from './container-component.class';
@@ -24,7 +23,7 @@ export abstract class StoreComponent extends ContainerComponent {
   }
 
   public select<S, R>(selector: ISelector<S, R>): Observable<R> {
-    return this.store.select(selector);
+    return this.store.pipe(select(selector));
   }
 
   public subscribeToState<R>(
@@ -33,7 +32,10 @@ export abstract class StoreComponent extends ContainerComponent {
     notifyChange: boolean = true,
     operators: OperatorFunction<any, R>[] = []
   ): void {
-    const obs: Observable<R> = this.store.select(selector).pipe(...operators);
+    const obs: Observable<R> = this.store.pipe(
+      select(selector),
+      ...operators
+    );
 
     this.subscribeToObservable(obs, data => {
       cb(data);

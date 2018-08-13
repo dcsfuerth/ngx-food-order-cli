@@ -20,7 +20,7 @@ export class LoginPageComponent extends StoreComponent {
   constructor(protected store: Store<State>, protected cd: ChangeDetectorRef) {
     super(store, cd);
 
-    this.authFailed$ = this.store.select(authFailedSelector);
+    this.authFailed$ = this.select(authFailedSelector);
   }
 
   public authenticate(email: string) {
