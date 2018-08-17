@@ -95,11 +95,13 @@ export function normalizedEntityReducerFactory<S extends INormalizedEntityState>
   const deleteReducer = asyncRemoveEntityReducerFactory(initialState, deleteActions);
 
   return (state: S = initialState, action: IAction): S => {
-    return compose(
+    state = compose(
       deleteReducer(__, action),
       updateReducer(__, action),
-      createReducer(__, action),
-      fetchReducer(__, action)
+      createReducer(__, action)
     )(state);
+    // TODO: replace workaround - including fetchReducer in compose above throws stange error
+    // Error: First argument to _arity must be a non-negative integer no greater than ten
+    return fetchReducer(state, action);
   };
 }
