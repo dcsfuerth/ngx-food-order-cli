@@ -1,3 +1,11 @@
+<a name="3.7.2"></a>
+
+## [3.7.2](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.7.1...v3.7.2) (2018-08-17)
+
+### Bug Fixes
+
+- **ramda:** trying to work around stange ramda bug ([6cac195](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/6cac195))
+
 <a name="3.7.1"></a>
 
 ## [3.7.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.7.0...v3.7.1) (2018-08-13)
