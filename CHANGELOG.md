@@ -1,3 +1,11 @@
+<a name="4.0.1"></a>
+
+## [4.0.1](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v4.0.0...v4.0.1) (2018-08-21)
+
+### Bug Fixes
+
+- **ngx-tools:** i hate angular sometimes ([b956403](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/b956403))
+
 <a name="4.0.0"></a>
 
 # [4.0.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.7.4...v4.0.0) (2018-08-21)
