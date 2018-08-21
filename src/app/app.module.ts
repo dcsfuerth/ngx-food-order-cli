@@ -1,7 +1,7 @@
 import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { APP_ENVIRONMENT, NgxToolsModule } from '@dcs/ngx-tools';
+import { APP_ENVIRONMENT } from '@dcs/ngx-tools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
@@ -35,7 +35,6 @@ export function getReducers() {
     AppRoutingModule,
     CoreModule,
     ComponentsModule,
-    NgxToolsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     // ngrx
     StoreModule.forRoot(REDUCER_TOKEN, { metaReducers }),

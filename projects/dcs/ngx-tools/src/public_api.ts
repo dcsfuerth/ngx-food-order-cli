@@ -15,4 +15,3 @@ export * from './lib/tokens';
 
 export { ApiRequestEffects } from './lib/store/api-request/api-request.effects';
 export { RouterEffects } from './lib/store/router/router.effects';
-export { NgxToolsModule } from './lib/ngx-tools.module';
