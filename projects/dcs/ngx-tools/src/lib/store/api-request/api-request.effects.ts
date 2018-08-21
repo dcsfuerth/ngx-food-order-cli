@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { Inject } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { normalize } from 'normalizr';

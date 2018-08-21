@@ -1,16 +1,9 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavigationExtras } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import * as RouterActions from './router.actions';
-
-// Workaround for Typescript bug:
-// "Public property 'x' of exported class has or is using name 'y' from external module z but cannot be named."
-export { NavigationExtras, Observable, Action };
 
 @Injectable()
 export class RouterEffects {
