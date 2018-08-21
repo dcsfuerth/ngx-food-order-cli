@@ -1,3 +1,15 @@
+<a name="3.7.3"></a>
+
+## [3.7.3](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.7.2...v3.7.3) (2018-08-21)
+
+### Bug Fixes
+
+- **ngx-tools:** testing explicitly exporting effects ([edc8442](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/edc8442))
+
+### Features
+
+- **packages:** package updates ([4a3e471](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/4a3e471))
+
 <a name="3.7.2"></a>
 
 ## [3.7.2](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.7.1...v3.7.2) (2018-08-17)
