@@ -1,3 +1,11 @@
+<a name="4.0.0"></a>
+
+# [4.0.0](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.7.4...v4.0.0) (2018-08-21)
+
+### Bug Fixes
+
+- **ngx-tools:** removing NgxToolsModule ([95b0575](https://github.com/DcsMarcRemolt/ngx-food-order-cli/commit/95b0575))
+
 <a name="3.7.4"></a>
 
 ## [3.7.4](https://github.com/DcsMarcRemolt/ngx-food-order-cli/compare/v3.7.3...v3.7.4) (2018-08-21)
