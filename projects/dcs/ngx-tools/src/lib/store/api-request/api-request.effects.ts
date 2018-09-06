@@ -77,7 +77,7 @@ export const normalizeData = curry(
 export class ApiRequestEffects {
   @Effect()
   apiRequest$ = this.actions$.pipe(
-    ofType(ApiRequestActionTypes.ExecuteApiRequest),
+    ofType<IApiAction>(ApiRequestActionTypes.ExecuteApiRequest),
     mergeMap((action: IApiAction) => {
       const handlers: IApiActionHandlers = getHandlers(action.payload.handlers, action.meta);
       const request = action.payload.request;
@@ -99,7 +99,7 @@ export class ApiRequestEffects {
   );
 
   constructor(
-    private actions$: Actions,
+    private actions$: Actions<IApiAction>,
     private http: HttpClient,
     @Inject(APP_ENVIRONMENT) private environment: IEnvironment
   ) {}

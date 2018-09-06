@@ -32,10 +32,9 @@ export abstract class StoreComponent extends ContainerComponent {
     notifyChange: boolean = true,
     operators: OperatorFunction<any, R>[] = []
   ): void {
-    const obs: Observable<R> = this.store.pipe(
-      select(selector),
-      ...operators
-    );
+    let obs: Observable<R> = this.store.pipe(select(selector));
+
+    obs = operators.reduce((ob: Observable<R>, op: OperatorFunction<any, R>) => ob.pipe(op), obs);
 
     this.subscribeToObservable(obs, data => {
       cb(data);
