@@ -1,31 +1,34 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
-import { of, Subject } from 'rxjs';
+import { of } from 'rxjs';
 import { StoreComponent } from './store-component.class';
+import { configureComponentTestSuite } from '../../../testing/src/public_api';
+
+@Component({
+  selector: 'dcs-test-component',
+  template: '',
+})
+class TestComponent extends StoreComponent {
+  constructor(public store: Store<any>, protected cd: ChangeDetectorRef) {
+    super(store, cd);
+  }
+}
 
 describe('StoreComponent', () => {
-  @Component({
-    selector: 'dcs-test-component',
-    template: '',
-  })
-  class TestComponent extends StoreComponent {
-    constructor(public store: Store<any>, protected cd: ChangeDetectorRef) {
-      super(store, cd);
-    }
-  }
+  configureComponentTestSuite();
 
   let fixture: ComponentFixture<TestComponent>;
   let subject: TestComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeAll(async () => {
+    await TestBed.configureTestingModule({
       imports: [StoreModule.forRoot({})],
       declarations: [TestComponent],
       schemas: [],
       providers: [ChangeDetectorRef],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestComponent);
@@ -38,10 +41,6 @@ describe('StoreComponent', () => {
 
     beforeEach(() => {
       spy = jest.spyOn(subject.store, 'dispatch');
-    });
-
-    afterEach(() => {
-      spy.mockClear();
     });
 
     it('calls store dispatch', () => {
@@ -59,11 +58,6 @@ describe('StoreComponent', () => {
       spy = jest.spyOn(subject, 'dispatch');
     });
 
-    afterEach(() => {
-      spy.mockReset();
-      spy.mockRestore();
-    });
-
     it('dispatches the given callback if not loaded', () => {
       subject.dispatchIfNotLoaded(of(false), action);
       expect(spy).toHaveBeenCalled();
@@ -72,15 +66,12 @@ describe('StoreComponent', () => {
     it('dispatches the given callback only once', () => {
       subject.dispatchIfNotLoaded(of(false, false, false), action);
       expect(spy).toHaveBeenCalledTimes(1);
+      expect(spy).toHaveBeenCalledTimes(1);
     });
 
     it('does nothing if already loaded', () => {
       subject.dispatchIfNotLoaded(of(true, false), action);
       expect(spy).not.toHaveBeenCalled();
     });
-  });
-
-  describe('select', () => {
-    xit('TODO', () => {});
   });
 });
