@@ -1,12 +1,10 @@
 <div class="login-box">
-  <form [formGroup]="form" (submit)="login($event)">
+  <form [formGroup]="form" (submit)="login($event)" class="loginForm">
     <h2>Login</h2>
     <div class="error" *ngIf="authFailed">Authentication failed!</div>
-    <input type="email" id="input-email"
-           name="email"
-           formControlName="email"
-           [ngClass]="{'invalid' : emailInput.touched && emailInput.invalid }"
-           placeholder="E-Mail">
+    <input type="email" id="input-email" name="email" formControlName="email"
+      [ngClass]="{'invalid' : emailInput.touched && emailInput.invalid }"
+      placeholder="E-Mail">
     <div class="button-container">
       <button>Login</button>
     </div>

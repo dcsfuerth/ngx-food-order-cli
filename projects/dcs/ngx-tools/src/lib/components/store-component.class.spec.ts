@@ -66,7 +66,6 @@ describe('StoreComponent', () => {
     it('dispatches the given callback only once', () => {
       subject.dispatchIfNotLoaded(of(false, false, false), action);
       expect(spy).toHaveBeenCalledTimes(1);
-      expect(spy).toHaveBeenCalledTimes(1);
     });
 
     it('does nothing if already loaded', () => {
