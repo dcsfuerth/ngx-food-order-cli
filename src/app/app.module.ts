@@ -32,9 +32,9 @@ export function getReducers() {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     ComponentsModule,
+    AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     // ngrx
     StoreModule.forRoot(REDUCER_TOKEN, { metaReducers }),

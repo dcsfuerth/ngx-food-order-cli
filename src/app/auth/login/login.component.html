@@ -2,9 +2,16 @@
   <form [formGroup]="form" (submit)="login($event)" class="loginForm">
     <h2>Login</h2>
     <div class="error" *ngIf="authFailed">Authentication failed!</div>
-    <input type="email" id="input-email" name="email" formControlName="email"
-      [ngClass]="{'invalid' : emailInput.touched && emailInput.invalid }"
-      placeholder="E-Mail">
+    <div class="form-group">
+      <input type="email" id="input-email" name="email" formControlName="email"
+        [ngClass]="{'invalid' : emailInput.touched && emailInput.invalid }"
+        placeholder="E-Mail">
+    </div>
+    <div class="form-group">
+      <input type="password" id="input-password" name="password"
+        formControlName="password" [ngClass]="{'invalid' : passwordInput.touched && passwordInput.invalid }"
+        placeholder="Password">
+    </div>
     <div class="button-container">
       <button>Login</button>
     </div>

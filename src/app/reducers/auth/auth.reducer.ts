@@ -1,16 +1,17 @@
-import { IAction } from '@dcs/ngx-tools';
+import { HttpErrorResponse } from '@angular/common/http';
+import { IAction, ResetActionTypes } from '@dcs/ngx-tools';
 import { AuthActionTypes, authenticateActions } from './auth.actions';
-import { IUser } from '../users/models/user.class';
+import { AccessToken } from '../../auth/login/types';
 
 export interface State {
-  entity: IUser | null | boolean;
+  entity: AccessToken;
   loading: boolean;
   loaded: boolean;
-  error: any;
+  error: HttpErrorResponse | null;
 }
 
 export const initialState: State = {
-  entity: null,
+  entity: { accessToken: '' },
   loading: false,
   loaded: false,
   error: null,
@@ -22,14 +23,13 @@ export function reducer(state: State = initialState, action: IAction): State {
       return { ...state, loading: true };
 
     case authenticateActions.success:
-      return { ...initialState, loaded: true, entity: action.payload[0] };
+      return { ...initialState, loaded: true, entity: action.payload };
 
     case authenticateActions.error:
       return { ...initialState, error: action.payload };
 
-    // case REHYDRATE:
-    //   const payload = action.payload || {};
-    //   return { ...state, entity: false, ...payload.auth, loaded: true };
+    case ResetActionTypes.Reset:
+      return initialState;
 
     case AuthActionTypes.Logout:
       return initialState;

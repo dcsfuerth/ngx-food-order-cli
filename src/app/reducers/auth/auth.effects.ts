@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Go, IAction, Reset } from '@dcs/ngx-tools';
+import { Go, Reset, ResetActionTypes } from '@dcs/ngx-tools';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
-import { filter, flatMap, mapTo } from 'rxjs/operators';
+import { mapTo } from 'rxjs/operators';
 import { AuthActionTypes, authenticateActions, LoginSuccess } from './auth.actions';
 
 @Injectable()
@@ -10,7 +9,6 @@ export class AuthEffects {
   @Effect()
   loginSuccess$ = this.actions$.pipe(
     ofType(authenticateActions.success),
-    filter((action: IAction) => action.payload.length),
     mapTo(new LoginSuccess())
   );
 
@@ -21,9 +19,15 @@ export class AuthEffects {
   );
 
   @Effect()
-  redirectAndResetAfterLogout$ = this.actions$.pipe(
+  resetAfterLogout$ = this.actions$.pipe(
     ofType(AuthActionTypes.Logout),
-    flatMap(() => of(new Reset(), new Go({ path: ['auth', 'login'] })))
+    mapTo(new Reset())
+  );
+
+  @Effect()
+  redirectAfterReset$ = this.actions$.pipe(
+    ofType(ResetActionTypes.Reset),
+    mapTo(new Go({ path: ['auth', 'login'] }))
   );
 
   constructor(private actions$: Actions) {}
