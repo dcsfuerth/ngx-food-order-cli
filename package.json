@@ -7,6 +7,7 @@
     "watch": "ng serve --hmr --aot",
     "watch:jit": "ng serve --hmr",
     "backend:mock": "json-server mock/db.json --port 3001 --delay 500",
+    "backend:mock:fast": "json-server mock/db.json --port 3001",
     "build": "ng build",
     "build:ngx-tools": "ng build @dcs/ngx-tools --prod",
     "build:packages": "run-s build:ngx-tools",
@@ -43,7 +44,7 @@
     "@angular/forms": "^6.1.7",
     "@angular/platform-browser": "^6.1.7",
     "@angular/platform-browser-dynamic": "^6.1.7",
-    "@angular/pwa": "^0.7.5",
+    "@angular/pwa": "^0.8.2",
     "@angular/router": "^6.1.7",
     "@angular/service-worker": "^6.1.7",
     "@ngrx/effects": "^6.1.0",
@@ -63,9 +64,9 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.7.5",
-    "@angular-devkit/build-ng-packagr": "^0.7.5",
-    "@angular/cli": "^6.1.5",
+    "@angular-devkit/build-angular": "^0.8.2",
+    "@angular-devkit/build-ng-packagr": "^0.8.2",
+    "@angular/cli": "^6.2.2",
     "@angular/compiler-cli": "^6.1.7",
     "@angular/language-service": "^6.1.7",
     "@angularclass/hmr": "^2.1.3",
@@ -73,35 +74,35 @@
     "@commitlint/config-conventional": "^7.1.2",
     "@compodoc/compodoc": "^1.1.5",
     "@ngrx/schematics": "^6.1.0",
-    "@types/jest": "^23.3.1",
+    "@types/jest": "^23.3.2",
     "@types/json-stable-stringify": "^1.0.32",
-    "@types/md5": "^2.1.32",
-    "@types/node": "^10.9.4",
+    "@types/md5": "^2.1.33",
+    "@types/node": "^10.10.1",
     "@types/ramda": "github:types/npm-ramda#dist",
     "codelyzer": "^4.4.4",
     "commitizen": "^2.10.1",
     "conventional-changelog-cli": "^2.0.5",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^0.14.3",
-    "jest": "^23.5.0",
+    "jest": "^23.6.0",
     "jest-preset-angular": "^6.0.0",
     "jest-watch-typeahead": "^0.2.0",
     "json-server": "^0.14.0",
     "lint-staged": "^7.2.2",
     "local-web-server": "^2.6.0",
-    "ng-packagr": "^4.1.1",
+    "ng-packagr": "^4.2.0",
     "ngrx-store-logger": "^0.2.2",
     "npm-run-all": "^4.1.3",
     "prettier": "^1.14.2",
-    "protractor": "^5.4.0",
-    "ts-jest": "^23.10.0-beta.2",
+    "protractor": "^5.4.1",
+    "ts-jest": "^23.10.0-beta.6",
     "ts-node": "^7.0.1",
-    "tsickle": "^0.32.1",
+    "tsickle": "^0.33.0",
     "tslib": "^1.9.3",
     "tslint": "^5.11.0",
     "typedoc": "^0.12.0",
     "typescript": "~2.9.2",
-    "webpack-bundle-analyzer": "^2.13.1"
+    "webpack-bundle-analyzer": "^3.0.2"
   },
   "config": {
     "commitizen": {
@@ -112,39 +113,6 @@
     "*.{js,json,css,md,ts,scss}": [
       "prettier --write",
       "git add"
-    ]
-  },
-  "jest": {
-    "preset": "jest-preset-angular",
-    "testURL": "http://localhost/",
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setup-jest.ts",
-    "coverageDirectory": "report/coverage",
-    "collectCoverageFrom": [
-      "projects/**/*.ts",
-      "src/app/**/*.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 25,
-        "functions": 25,
-        "lines": 25,
-        "statements": 25
-      }
-    },
-    "modulePathIgnorePatterns": [
-      "<rootDir>/dist"
-    ],
-    "moduleNameMapper": {
-      "@dcs/ngx-tools/testing": "<rootDir>projects/dcs/ngx-tools/testing/src/public_api.ts",
-      "@dcs/ngx-tools": "<rootDir>/projects/dcs/ngx-tools/src/public_api.ts"
-    },
-    "roots": [
-      "<rootDir>/src",
-      "<rootDir>/projects/dcs/ngx-tools/src"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
     ]
   }
 }
