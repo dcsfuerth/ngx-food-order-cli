@@ -7,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   public ngOnInit() {
-    console.log('Site load:', performance.now().toFixed(2), 'ms!');
+    console.log(`Site load: ${performance.now().toFixed(2)} ms!`);
   }
 }

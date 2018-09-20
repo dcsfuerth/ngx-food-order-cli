@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'roboto';
-  font-display: auto;
+  font-display: fallback;
   src: url('/assets/fonts/roboto-regular.woff2') format('woff2'),
     url('/assets/fonts/roboto-regular.woff') format('woff');
   font-weight: normal;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'roboto';
-  font-display: auto;
+  font-display: fallback;
   src: url('/assets/fonts/roboto-bold.woff2') format('woff2'),
     url('/assets/fonts/roboto-bold.woff') format('woff');
   font-weight: bold;
